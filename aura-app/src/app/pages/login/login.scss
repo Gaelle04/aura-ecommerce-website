@@ -14,7 +14,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: FCF5FD;
+      background-color: #FCF5FD;
       background-image: cover;
   
       img {
@@ -51,6 +51,12 @@
         flex-direction: column;
         gap: 1.2rem;
         color: #2e004f;
+
+        input, button{
+            width:100px;
+            box-sizing:border-box;
+
+        }
   
         .top-row {
           display: flex;
@@ -95,6 +101,9 @@
             border-radius: 8px;
             font-weight: 500;
             cursor: pointer;
+            box-sizing: border-box;
+            width:100%;
+            
           }
         }
   
@@ -182,6 +191,7 @@
           font-weight: 600;
           font-size: 1rem;
           cursor: pointer;
+          width:100%;
   
           &:hover {
             background-color: #FCF5FD;
