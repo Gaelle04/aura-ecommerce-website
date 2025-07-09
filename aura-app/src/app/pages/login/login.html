@@ -1,0 +1,66 @@
+<div class="login-page">
+    <!-- Left Image Section -->
+    <div class="login-pic">
+      <img src="assets/hh.png" alt="Fashion Login" />
+    </div>
+  
+    <!-- Right Form Section -->
+    <div class="login-form-container">
+      <form [formGroup]="loginForm" (ngSubmit)="OnSubmit()" class="login-form">
+        <div class="top-row">
+          <h2>Sign In </h2>
+          <span class="aura-logo">
+            <img src="assets/AURA.logo.png" alt="Aura logo"/>    
+        </span>
+        </div>
+       
+  
+        <!-- Social Buttons -->
+        <div class="social-buttons">
+          <button type="button" class="google-btn">
+            <img src="assets/Subject 23.png" /> Continue With Google
+          </button>
+          <button type="button" class="twitter-btn">
+            <img src="assets/Subject 24.png" /> Continue With Twitter
+          </button>
+        </div>
+  
+        <div class="divider">OR</div>
+  
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">User name or email address</label>
+          <input type="email" id="email" formControlName="email" />
+          <small *ngIf="submitted && loginForm.get('email')?.errors?.['required']">
+            Email is required.
+          </small>
+          <small *ngIf="submitted && loginForm.get('email')?.errors?.['email']">
+            Enter a valid email.
+          </small>
+        </div>
+  
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" />
+          <small *ngIf="submitted && loginForm.get('password')?.errors?.['required']">
+            Password is required.
+          </small>
+        </div>
+  
+        <!-- Forgot Password -->
+        <div class="password-row">
+          <a href="#">Forgot your password?</a>
+        </div>
+  
+        <!-- Submit -->
+        <button class="submit-button" type="submit">Sign In</button>
+  
+        <!-- Sign Up -->
+        <div class="signup-text">
+          Don’t have an account? <a href="#">Sign up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
