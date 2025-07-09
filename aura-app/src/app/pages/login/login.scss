@@ -175,7 +175,7 @@
   
         .submit-button {
           background-color: #2e004f;
-          color: white;
+          color: #FCF5FD;
           padding: 0.9rem;
           border: none;
           border-radius: 8px;
@@ -184,7 +184,8 @@
           cursor: pointer;
   
           &:hover {
-            background-color: #1e0038;
+            background-color: #FCF5FD;
+            color:#2e004f;
           }
         }
   
@@ -196,6 +197,7 @@
             text-decoration: none;
             color: #6c2dbd;
             font-weight: 500;
+            
           }
         }
       }
