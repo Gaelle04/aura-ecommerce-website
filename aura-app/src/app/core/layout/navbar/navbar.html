@@ -1,1 +1,23 @@
-<p>navbar works!</p>
+<mat-toolbar class="navbar" color="transparent">
+    <div class="nav-left">
+      <button mat-icon-button class="mobile-menu-toggle" (click)="toggleMenu()"><mat-icon>menu</mat-icon></button>
+      <nav [class.open]="isMenuOpen">
+        <a routerLink="/login">LOGIN</a>
+        <a routerLink="/shop">SHOP</a>
+        <a routerLink="/contact">CONTACT</a>
+        <a routerLink="/about">ABOUT</a>
+      </nav>
+    </div>
+  
+    <div class="nav-center">
+      <img src="assets/AURA.logo.png" alt="AURA Logo" class="logo" />
+    </div>
+  
+    <div class="nav-right">
+      <button mat-icon-button><mat-icon>search</mat-icon></button>
+      <button mat-icon-button><mat-icon>favorite_border</mat-icon></button>
+      <button mat-icon-button><mat-icon>person_outline</mat-icon></button>
+      <button mat-icon-button><mat-icon>shopping_cart</mat-icon></button>
+    </div>
+  </mat-toolbar>
+  
