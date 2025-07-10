@@ -4,6 +4,8 @@ import {MatButtonModule} from'@angular/material/button';
 import {CommonModule} from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterModule} from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
+import {Observable} from 'rxjs';
 
 
 @Component({
@@ -20,5 +22,16 @@ export class Navbar {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+  isLoggedIn$: Observable<boolean>;
+  
+  constructor(private authService: AuthService){
+   this.isLoggedIn$= this.authService.isLoggedIn$;
+  }
 
+  
+
+  logout() {
+    this.authService.logout(); 
+  }
+  
 }
