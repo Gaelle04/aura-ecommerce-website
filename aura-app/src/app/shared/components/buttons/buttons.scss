@@ -1,0 +1,20 @@
+ /* Add to Cart Button */
+ .add-to-cart-btn{
+  background-color: #2e004f;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+
+  
+}
+
+.add-to-cart-btn:hover {
+  background-color: #fdf4fb;
+  color: rgb(25, 18, 58);
+}
+

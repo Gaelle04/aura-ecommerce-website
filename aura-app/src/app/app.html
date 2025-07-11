@@ -1,3 +1,6 @@
 <app-navbar *ngIf="!hideLayout"> </app-navbar>
 <router-outlet></router-outlet>
-<app-footer *ngIf="!hideLayout"></app-footer>
+
+<app-product-list *ngIf="!hideLayout"></app-product-list>
+
+<app-footer *ngIf="!hideLayout" ></app-footer>
