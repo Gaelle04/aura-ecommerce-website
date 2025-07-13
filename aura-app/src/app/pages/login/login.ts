@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import{NgIf} from '@angular/common';
 import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { AuthService } from '../../core/auth/auth.service';
+import { AuthService } from '../../core/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { passwordHasNumberValidator } from '../../validators/password-has-number';
 
@@ -18,6 +18,7 @@ import { passwordHasNumberValidator } from '../../validators/password-has-number
 export class Login {
   loginForm: FormGroup;
   submitted = false;
+  loginError: string | null = null;
 
   constructor(private formBuilder : FormBuilder, private authService: AuthService, private router: Router){
     this.loginForm = this.formBuilder.group({
@@ -31,14 +32,21 @@ export class Login {
 
   OnSubmit() {
     this.submitted = true;
+    this.loginError = null;
   
     if (this.loginForm.invalid) return;
   
     const { email, password } = this.loginForm.value;
   
-    this.authService.login({ email, password });
-    this.router.navigate(['/']);
+    this.authService.login({ email, password }).subscribe({
+      next: (response: { token: string }) => {
+        this.authService.setToken(response.token);
+        this.authService.setLoggedIn(true);  
+        this.router.navigate(['/']);
+      },
+      error: () => {
+        this.loginError = 'Invalid username or password';
+      }
+    }); 
   }
-  
-
 }

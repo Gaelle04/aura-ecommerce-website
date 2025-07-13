@@ -9,7 +9,7 @@ export function matchPasswords(passwordKey: string, confirmPasswordKey: string) 
     if (!password || !confirmPassword) return null;
 
     if (confirmPassword.errors && !confirmPassword.errors['mismatch']) {
-      // If there are other errors, don't overwrite them
+      
       return null;
     }
 

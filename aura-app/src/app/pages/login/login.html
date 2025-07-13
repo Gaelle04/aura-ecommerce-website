@@ -8,7 +8,7 @@
     <div class="login-form-container">
       <form [formGroup]="loginForm" (ngSubmit)="OnSubmit()" class="login-form">
         <div class="top-row">
-          <h2>Sign In </h2>
+          <h2>Log In </h2>
           <span class="aura-logo">
             <img src="assets/AURA.logo.png" alt="Aura logo"/>    
         </span>
@@ -37,6 +37,7 @@
           <small *ngIf="submitted && loginForm.get('email')?.errors?.['email']">
             Enter a valid email.
           </small>
+          <small class="error" *ngIf="loginError">{{ loginError }}</small>
         </div>
   
         
@@ -57,7 +58,7 @@
         </div>
   
         
-        <button class="submit-button" type="submit">Sign In</button>
+        <button class="submit-button" type="submit">Log In</button>
   
         
         <div class="signup-text">

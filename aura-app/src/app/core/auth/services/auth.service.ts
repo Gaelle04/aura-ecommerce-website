@@ -5,70 +5,54 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-
 export class AuthService {
   private readonly token_key = 'auth_token';
-  private readonly api_url = 'http://192.168.1.187:5005/api/User/Login()'; 
-
+  private readonly loginUrl = 'http://192.168.1.187:5005/api/User/Login';
+  private readonly signupUrl = 'http://192.168.1.187:5005/api/User/Register';
 
   private loggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   isLoggedIn$ = this.loggedInSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
-  // Login 
+  setLoggedIn(value: boolean): void {
+    this.loggedInSubject.next(value);
+  }
+
   login(credentials: { email: string; password: string }) {
-
-    return this.http.post<{ token: string }>(this.api_url, credentials, {
-    }).subscribe({
-      next: (response: { token: string; }) => {
-        this.setToken(response.token);
-        this.loggedInSubject.next(true);
-      },
-      error: (err: any) => {
-        console.error('Login failed', err);
-      }
-    });
-
-  
+    return this.http.post<{ token: string }>(this.loginUrl, credentials);
   }
 
-  signup(credentials: { name:string; email: string; password: string }) {
-
-    return this.http.post<{ token: string }>(this.api_url, credentials, {
-    }).subscribe({
-      next: (response: { token: string; }) => {
-        this.setToken(response.token);
-        this.loggedInSubject.next(true);
-      },
-      error: (err: any) => {
-        console.error('Login failed', err);
-      }
-    });
-
-  
+  signup(credentials: { name: string; email: string; password: string }) {
+    return this.http.post<{ token: string }>(this.signupUrl, credentials);
   }
+
   private isBrowser(): boolean {
     return typeof window !== 'undefined' && !!window.localStorage;
   }
-  
+
   private hasToken(): boolean {
     return this.isBrowser() && !!localStorage.getItem(this.token_key);
   }
-  
+
   setToken(token: string): void {
     if (this.isBrowser()) {
       localStorage.setItem(this.token_key, token);
     }
   }
-  
+
+  getToken(): string | null {
+    return this.isBrowser() ? localStorage.getItem(this.token_key) : null;
+  }
+
   logout(): void {
     if (this.isBrowser()) {
       localStorage.removeItem(this.token_key);
+      this.setLoggedIn(false);
     }
   }
-  
-  isAuthenticated():boolean{
+
+  isAuthenticated(): boolean {
     return this.hasToken();
-  } 
+  }
 }

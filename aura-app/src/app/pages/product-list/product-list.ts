@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService, IProduct } from '../../services/product.service.ts';
 import{NgFor} from '@angular/common';
-import { Buttons } from '../../shared/components/buttons/buttons';
+
+import { ProductCard } from './components/product-card/product-card';
+
+
 @Component({
   selector: 'app-product-list',
-  imports: [NgFor, Buttons],
+  imports: [NgFor, ProductCard],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss'
 })

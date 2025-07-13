@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import {CommonModule} from '@angular/common';
 import{NgIf} from '@angular/common';
 import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { AuthService } from '../../core/auth/auth.service';
+import { AuthService } from '../../core/auth/services/auth.service';
 import { Router } from '@angular/router';
 import { passwordHasNumberValidator } from '../../validators/password-has-number';
 import { matchPasswords } from '../../validators/match-password';
+import {OnInit} from '@angular/core';
 
 
 
@@ -16,7 +17,7 @@ import { matchPasswords } from '../../validators/match-password';
   styleUrl: './signup.scss'
 })
 
-export class Signup {
+export class Signup implements OnInit {
 
  
 
@@ -50,8 +51,17 @@ export class Signup {
     if (this.signupForm.invalid) return;
 
     const { name, email, password } = this.signupForm.value;
-    this.authService.signup({ name, email, password });
-    this.router.navigate(['/login']);
+    
+    this.authService.signup({ name, email, password }).subscribe({
+      next: (res: { token: string; }) => {
+        this.authService.setToken(res.token);
+        this.authService.setLoggedIn(true);
+        this.router.navigate(['/login']);
+      },
+      error: (err: any) => {
+        console.error('Signup failed', err);
+      }
+    });
   }
 
 }

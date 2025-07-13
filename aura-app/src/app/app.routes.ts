@@ -4,41 +4,51 @@ import { ProductList } from './pages/product-list/product-list';
 import { Login } from './pages/login/login';
 import { ProductDetails } from './pages/product-details/product-details';
 import { Signup } from './pages/signup/signup';
+import { Profile } from './pages/profile/profile';
+import { authGuardGuard } from './core/auth/guards/authguard/auth-guard';
+import { NotFound } from './pages/not-found/not-found';
+import { guestGuard } from './core/auth/guards/guestGuard/guest-guard';
 
 export const routes: Routes = [
 
     {
         path:'',
         component: Home
+        
 
     }, 
-  
 
     {
         path:'login', 
         component: Login,
+        canActivate: [guestGuard]
+    }, 
+
+    {
+        path:'profile', 
+        component: Profile,
+       canActivate: [authGuardGuard]
     }, 
 
     {
         path:'signup', 
         component: Signup,
+        canActivate: [guestGuard]
     }, 
 
     {
         path:'products',
         component: ProductList
     }, 
-    
-    {
-        path: 'products',
-        loadComponent: () => import('./pages/product-list/product-list').then(m => m.ProductList)
-      },
-      
-
     {
         path:'product/:id', 
         component:ProductDetails,
+    }, 
+    {
+        path:'**', 
+        component: NotFound,
     }
+
 ];
 
 
