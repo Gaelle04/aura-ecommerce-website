@@ -1,0 +1,12 @@
+<section class="new-arrivals">
+    <h2>New Arrivals</h2>
+    <h3>Just dropped</h3>
+    <div class="product-list">
+      <app-product-card
+        *ngFor="let product of arrivals"
+        [product]="product">
+      </app-product-card>
+    </div>
+  </section>
+  <hr class="seperator"/>
+

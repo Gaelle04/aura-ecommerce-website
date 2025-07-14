@@ -4,7 +4,7 @@
   
       
       <div class="carousel-caption">
-        <app-buttons class="shop-btn" label="SHOP NOW"></app-buttons>
+        <app-buttons label="SHOP NOW" [routeTo]="'/products'"></app-buttons>
       </div>
       <button (click)="prevImage()">‹</button>
       <button (click)="nextImage()">›</button>
@@ -13,6 +13,12 @@
   <div class="carousel-offer">
     <p>10% OFF UR FIRST PURCHASE!</p>
   </div>
+
+  <app-new-arrivals [arrivals]="arrivals"></app-new-arrivals>
+
+  <app-featured-categories></app-featured-categories>
+  <app-recommended-for-you [arrivals]="arrivals"></app-recommended-for-you>
+
   
 
 

@@ -5,13 +5,13 @@ import { Footer } from './core/layout/footer/footer';
 import {NgIf} from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { NavigationEnd} from '@angular/router';
-import { ProductList } from './pages/product-list/product-list';
+
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Footer, NgIf, ProductList],
+  imports: [RouterOutlet, Navbar, Footer, NgIf],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

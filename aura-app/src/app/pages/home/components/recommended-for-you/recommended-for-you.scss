@@ -1,0 +1,24 @@
+.new-arrivals {
+    padding: 2rem;
+    padding-left:100px;
+    padding-right:100px;
+    
+    
+  
+    h2 {
+      font-size:2rem;
+      color: #2e003e;
+      margin-bottom: 2rem;
+      text-align: center;
+      
+    }
+
+  
+    .product-list {
+      display: flex;
+      
+      gap: 2rem;
+      justify-content: center;
+    }
+
+  }
