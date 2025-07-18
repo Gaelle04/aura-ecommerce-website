@@ -13,7 +13,7 @@ export const AuthInterceptor: HttpInterceptorFn = (
   req: HttpRequest<any>,
   next: HttpHandlerFn
 ): Observable<HttpEvent<any>> => {
-  const isBrowser = typeof window !== 'undefined'; // ✅ prevent SSR crash
+  const isBrowser = typeof window !== 'undefined'; 
   const token = isBrowser ? localStorage.getItem('auth_token') : null;
   const router = inject(Router);
 

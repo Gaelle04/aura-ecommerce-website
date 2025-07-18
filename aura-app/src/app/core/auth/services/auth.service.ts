@@ -28,10 +28,12 @@ export class AuthService {
   }
 
   private isBrowser(): boolean {
+    //return true;
     return typeof window !== 'undefined' && !!window.localStorage;
   }
 
   private hasToken(): boolean {
+   // return true;
     return this.isBrowser() && !!localStorage.getItem(this.token_key);
   }
 
@@ -42,6 +44,7 @@ export class AuthService {
   }
 
   getToken(): string | null {
+   // return null;
     return this.isBrowser() ? localStorage.getItem(this.token_key) : null;
   }
 

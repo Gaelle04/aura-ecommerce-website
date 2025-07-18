@@ -1,0 +1,57 @@
+.activity-table{
+    background-color: white;
+    border-radius: 39px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin: 15rem auto;
+    height:800px;
+    width:1200px;
+    margin-top:40px;
+  }
+  
+  ::ng-deep .activity-table {
+    --ag-border-color: transparent;
+    --ag-row-border-width: 0px;
+    --ag-header-background-color: transparent;
+    --ag-row-hover-color: #f9f4ff;
+    --ag-font-size: 17px;
+    --ag-font-family: '', sans-serif;
+    --ag-font-weight:10px;
+
+    .ag-root-wrapper {
+      border: none;
+    }
+  
+    .ag-row {
+      border-bottom: none;
+      border-radius:15px;
+    }
+  
+    .ag-cell {
+      padding: 1rem;
+      color: #2e003e;
+     
+    }
+    
+  
+    .ag-center-cols-viewport {
+      background-color: transparent;
+    }
+
+    .ag-header{
+     background-color:#2e003e;
+      border-radius:15px;
+    }
+  }
+
+  h1{
+    margin-top:60px;
+      font-size:30px;
+      color: #2e003e;
+      margin-bottom: 1.8rem;
+      font-weight:10px;
+      padding-left:453px;
+      
+    
+  }
+  

@@ -8,6 +8,8 @@ import { Profile } from './pages/profile/profile';
 import { authGuardGuard } from './core/auth/guards/authguard/auth-guard';
 import { NotFound } from './pages/not-found/not-found';
 import { guestGuard } from './core/auth/guards/guestGuard/guest-guard';
+import { Dashboard } from './pages/dashboard/dashboard';
+import { Cart } from './pages/cart/cart';
 
 export const routes: Routes = [
 
@@ -23,11 +25,16 @@ export const routes: Routes = [
         component: Login,
         canActivate: [guestGuard]
     }, 
+    {
+        path:'cart', 
+        component: Cart,
+       // canActivate: [authGuardGuard]
+    }, 
 
     {
         path:'profile', 
         component: Profile,
-       canActivate: [authGuardGuard]
+        canActivate: [authGuardGuard]
     }, 
 
     {
@@ -44,6 +51,12 @@ export const routes: Routes = [
         path:'product/:id', 
         component:ProductDetails,
     }, 
+    {
+        path:'dashboard',
+        component:Dashboard,
+        
+
+    },
     {
         path:'**', 
         component: NotFound,

@@ -16,9 +16,9 @@
   
     <div class="nav-right">
       <button mat-icon-button><mat-icon>search</mat-icon></button>
-      <button mat-icon-button><mat-icon>favorite_border</mat-icon></button>
-      <button mat-icon-button><mat-icon>person_outline</mat-icon></button>
-      <button mat-icon-button><mat-icon>shopping_cart</mat-icon></button>
+      <button mat-icon-button [routerLink]="['/profile']"><mat-icon>favorite_border</mat-icon></button>
+      <button mat-icon-button [routerLink]="['/profile']"><mat-icon>person_outline</mat-icon></button>
+      <button mat-icon-button [routerLink]="['/cart']"><mat-icon>shopping_cart</mat-icon></button>
     </div>
   </mat-toolbar>
   
