@@ -57,6 +57,7 @@ colDefs: ColDef[] = [
     { field: "actions"},
     {field:"status"}
 ];
+
   pagination: boolean;
   paginationPageSize: number;
   paginationPageSizeSelector: number[];
@@ -90,10 +91,5 @@ this.pagination = true;
 this.paginationPageSize = 500;
 this.paginationPageSizeSelector = [200, 500, 1000];
 
-}
-
-
-
-
-
+  }
 }

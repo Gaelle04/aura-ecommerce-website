@@ -1,7 +1,6 @@
 import { Component , OnInit} from '@angular/core';
 import { Buttons } from '../../shared/components/buttons/buttons';
 import { IProduct } from '../../services/product.service.ts';
-import { ProductService } from '../../services/product.service.ts';
 import { NewArrivals } from './components/new-arrivals/new-arrivals';
 import { FeaturedCategories } from './components/featured-categories/featured-categories';
 import { RecommendedForYou } from './components/recommended-for-you/recommended-for-you';
@@ -14,7 +13,7 @@ import { RecommendedForYou } from './components/recommended-for-you/recommended-
   styleUrl: './home.scss',
   standalone: true,
 })
-export class Home implements OnInit {
+export class Home  {
 
   images = [
     'assets/hero1.png',
@@ -34,11 +33,5 @@ export class Home implements OnInit {
 
   arrivals: IProduct[] = [];
 
-constructor(private productService: ProductService) {}
 
-ngOnInit() {
-  this.productService.getProducts().subscribe((products: IProduct[]) => {
-    this.arrivals = products.slice(0, 5);
-  });
-}
 }
