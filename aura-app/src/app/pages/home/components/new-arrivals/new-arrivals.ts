@@ -3,10 +3,12 @@ import { IProduct } from '../../../../services/product.service.ts';
 import { ProductCard } from '../../../product-list/components/product-card/product-card';
 import {CommonModule} from '@angular/common';
 import { ProductService } from '../../../../services/product.service.ts';
+import {RouterModule} from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-new-arrivals',
-  imports: [CommonModule, ProductCard],
+  imports: [CommonModule, ProductCard, RouterModule, MatIconModule],
   templateUrl: './new-arrivals.html',
   styleUrl: './new-arrivals.scss'
 })

@@ -4,11 +4,14 @@
     padding-right:100px;
     
     
+    
   
     h2 {
       font-size:3rem;
       color: #2e003e;
       margin-bottom: 1.5rem;
+      margin-left:16rem;
+    
       
     }
 
@@ -17,6 +20,7 @@
         color:#2e003e;
         margin-bottom: 2rem;
         font-style:italic;
+        margin-left:16rem;
 
     }
   
@@ -27,7 +31,34 @@
       justify-content: center;
     }
     
-
+    .load-more {
+      display: inline-flex;
+      align-items: center;  // vertical alignment
+      gap: 0.4rem;           // spacing between text and icon
+      font-weight: 500;
+      text-decoration: none;
+      color: #2e003e;
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+      margin-left:57rem;
+    
+      &:hover {
+        mat-icon {
+          transform: translateX(4px);
+        }
+      }
+    
+      mat-icon {
+        font-size: 20px;
+        vertical-align: middle;
+        //margin-left:1rem;
+        
+      
+      }
+    }
+    
+    
+    
 
 
   }
