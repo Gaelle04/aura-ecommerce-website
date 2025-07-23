@@ -6,9 +6,6 @@
     margin: 0 auto;
     margin-bottom:5rem;
     
-    
-    
-  
     h2 {
       font-size:3rem;
       color: #2e003e;
@@ -23,6 +20,7 @@
         font-style:italic;
 
     }
+
     .categories-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -65,6 +63,7 @@
           font-weight: 600;
           color: #2e003e;
           margin: 0;
+          text-decoration: none;
         }
       }
     } 
@@ -97,6 +96,7 @@
           color: #280036;
           margin: 0;
           padding-top: 89px;
+          text-decoration: none;
         }
 
         
@@ -108,7 +108,4 @@
     margin-top: 0;
     margin-bottom: 1rem;
     width: 100%;
-    
-  
-  
   }

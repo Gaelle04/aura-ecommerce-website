@@ -50,9 +50,17 @@ export class Signup implements OnInit {
 
     if (this.signupForm.invalid) return;
 
-    const { name, email, password } = this.signupForm.value;
+    const { firstname,lastname,  email, password, rolename } = this.signupForm.value;
+
+    const payload ={
+      Firstname:firstname,
+      Lastname: lastname,
+      Email: email,
+      Password: password,
+      RoleName:rolename
+    }
     
-    this.authService.signup({ name, email, password }).subscribe({
+    this.authService.signup(payload).subscribe({
       next: (res: { token: string; }) => {
         this.authService.setToken(res.token);
         this.authService.setLoggedIn(true);

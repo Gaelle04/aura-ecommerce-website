@@ -19,11 +19,11 @@ export class AuthService {
     this.loggedInSubject.next(value);
   }
 
-  login(credentials: { email: string; password: string }) {
+  login(credentials: { Email: string; Password: string }) {
     return this.http.post<{ token: string }>(this.loginUrl, credentials);
   }
 
-  signup(credentials: { name: string; email: string; password: string }) {
+  signup(credentials: {Firstname: string;Lastname:string,  Email: string; Password: string , RoleName:string}) {
     return this.http.post<{ token: string }>(this.signupUrl, credentials);
   }
 

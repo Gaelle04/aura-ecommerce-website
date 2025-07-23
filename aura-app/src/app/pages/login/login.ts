@@ -37,8 +37,12 @@ export class Login {
     if (this.loginForm.invalid) return;
   
     const { email, password } = this.loginForm.value;
+    const payload ={
+      Email:email,
+      Password: password
+    }
   
-    this.authService.login({ email, password }).subscribe({
+    this.authService.login(payload).subscribe({
       next: (response: { token: string }) => {
         this.authService.setToken(response.token);
         this.authService.setLoggedIn(true);  
