@@ -30,7 +30,7 @@
         <!-- Email -->
         <div class="form-group">
           <label for="email">User name or email address</label>
-          <input type="email" id="email" formControlName="email" />
+          <input type="email" id="email" formControlName="email" placeholder="Enter your email"/>
           <small *ngIf="submitted && loginForm.get('email')?.errors?.['required']">
             Email is required.
           </small>
@@ -43,7 +43,7 @@
         
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" formControlName="password" />
+          <input type="password" id="password" formControlName="password" placeholder="Enter your password"/>
           <small *ngIf="submitted && loginForm.get('password')?.errors?.['required']">
             Password is required.
           </small>

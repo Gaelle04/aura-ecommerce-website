@@ -31,14 +31,20 @@ export class Login {
   }
 
   OnSubmit() {
+    console.log('HElloos')
     this.submitted = true;
     this.loginError = null;
   
     if (this.loginForm.invalid) return;
   
     const { email, password } = this.loginForm.value;
+
+    const payload ={
+      Email:email,
+      Password:password
+    }
   
-    this.authService.login({ email, password }).subscribe({
+    this.authService.login(payload).subscribe({
       next: (response: { token: string }) => {
         this.authService.setToken(response.token);
         this.authService.setLoggedIn(true);  

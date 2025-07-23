@@ -11,11 +11,11 @@ import { ProductService } from '../../../../services/product.service.ts';
   styleUrl: './recommended-for-you.scss'
 })
 export class RecommendedForYou implements OnInit {
-  @Input() arrivals: IProduct[]=[];
+  @Input() RecommendedForYou: IProduct[]=[];
   constructor(private productService: ProductService){}
   ngOnInit() {
     this.productService.getProducts().subscribe((products: IProduct[]) => {
-      this.arrivals = products.slice(15, 20);
+      this.RecommendedForYou = products.slice(15, 20);
     });
   }
 

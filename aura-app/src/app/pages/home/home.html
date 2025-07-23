@@ -1,6 +1,6 @@
 <div class="carousel">
     <div class="carousel-slide">
-      <img [src]="images[currentIndex]" alt="hero" />
+      <img [src]="images[currentIndex]" alt="hero image" />
       <div class="carousel-caption">
         <app-buttons label="SHOP NOW" [routeTo]="'/products'"></app-buttons>
       </div>
@@ -14,7 +14,7 @@
 
   <app-new-arrivals [arrivals]="arrivals"></app-new-arrivals>
   <app-featured-categories></app-featured-categories>
-  <app-recommended-for-you [arrivals]="arrivals"></app-recommended-for-you>
+  <app-recommended-for-you [RecommendedForYou]="arrivals"></app-recommended-for-you>
 
   
 

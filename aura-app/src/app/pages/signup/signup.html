@@ -13,25 +13,31 @@
             <img src="assets/AURA.logo.png" alt="Aura logo"/>    
         </span>
         </div>
-       
-  
       
-   
-  
+
+        <!--FirstName-->
         <div class="form-group">
-        <label for="Name">UserName</label>
-        <input type="name" id="name" formControlName="name" />
-        <small *ngIf="submitted && signupForm.get('name')?.errors?.['required']">
-          Name is required.
+        <label for="firstname">FirstName</label>
+        <input type="text" id="firstname" formControlName="firstname" placeholder="Enter your first name" />
+        <small *ngIf="submitted && signupForm.get('firstname')?.errors?.['required']">
+          FirstName is required.
         </small>
         </div>
 
+        <!--LastName-->
+        <div class="form-group">
+          <label for="lastname">LastName</label>
+          <input type="text" id="lastname" formControlName="lastname" placeholder="Enter your last name" />
+          <small *ngIf="submitted && signupForm.get('lastname')?.errors?.['required']">
+            LastName is required.
+          </small>
+          </div>
         
 
         <!-- Email -->
         <div class="form-group">
-          <label for="email">User name or email address</label>
-          <input type="email" id="email" formControlName="email" />
+          <label for="email">Email address</label>
+          <input type="email" id="email" formControlName="email" placeholder="Enter your email"/>
           <small *ngIf="submitted && signupForm.get('email')?.errors?.['required']">
             Email is required.
           </small>
@@ -43,7 +49,7 @@
         <!-- Password -->
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" formControlName="password" />
+          <input type="password" id="password" formControlName="password" placeholder="Enter your password"/>
           <small *ngIf="submitted && signupForm.get('password')?.errors?.['required']">
             Password is required.
           </small>
@@ -54,9 +60,7 @@
 
         <div class="form-group">
           <label for="confirmPassword">Confirm Password</label>
-          <input type="password" id="confirmPassword" formControlName="confirmPassword" />
-        
-         
+          <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password"/>
           <small *ngIf="submitted && signupForm.get('confirmPassword')?.errors?.['required']">
             Confirm password is required.
           </small>
