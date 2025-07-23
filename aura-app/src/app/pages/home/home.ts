@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit, OnDestroy, NgZone} from '@angular/core';
 import { Buttons } from '../../shared/components/buttons/buttons';
 import { IProduct } from '../../services/product.service.ts';
 import { NewArrivals } from './components/new-arrivals/new-arrivals';
@@ -22,6 +22,25 @@ export class Home  {
   ];
 
   currentIndex = 0;
+  intervalId: any;
+  constructor(private ngZone: NgZone) {}
+
+  ngOnInit(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.intervalId = setInterval(() => {
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+        this.ngZone.run(() => {});
+      }, 5000); 
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
+
+
   
   prevImage() {
     this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
