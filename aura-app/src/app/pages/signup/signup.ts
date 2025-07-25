@@ -19,7 +19,8 @@ import {OnInit} from '@angular/core';
 
 export class Signup implements OnInit {
 
- 
+
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,7 +39,8 @@ export class Signup implements OnInit {
         lastname: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, passwordHasNumberValidator]],
-        confirmPassword: ['', Validators.required]
+        confirmPassword: ['', Validators.required], 
+        rolename:['', Validators.required]
       },
       {
         validators: matchPasswords('password', 'confirmPassword') 
@@ -47,12 +49,17 @@ export class Signup implements OnInit {
   }
 
   OnSubmit() {
+<<<<<<< HEAD
 
     
+=======
+    console.log('HElloos')
+>>>>>>> 9fd5e340d8c965fd7145e0fabc6da19de5df579f
     this.submitted = true;
 
     if (this.signupForm.invalid) return;
 
+<<<<<<< HEAD
     const { firstname,lastname,  email, password} = this.signupForm.value;
 
     const payload ={
@@ -65,6 +72,21 @@ export class Signup implements OnInit {
     console.log(payload);
     this.authService.signup(payload).subscribe({
       next: () => {
+=======
+    const { firstname,lastname,  email, password, rolename } = this.signupForm.value;
+    const payload = {
+      Firstname: firstname,
+      Lastname: lastname,
+      Email: email,
+      Password: password,
+      RoleName: rolename
+    };
+    
+    this.authService.signup(payload).subscribe({
+      next: (res: { token: string; }) => {
+        this.authService.setToken(res.token);
+        this.authService.setLoggedIn(true);
+>>>>>>> 9fd5e340d8c965fd7145e0fabc6da19de5df579f
         this.router.navigate(['/login']);
       },
       error: (err: any) => {

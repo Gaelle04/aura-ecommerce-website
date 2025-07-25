@@ -13,12 +13,11 @@
             <img src="assets/AURA.logo.png" alt="Aura logo"/>    
         </span>
         </div>
-       
-  
       
-   
-  
+
+        <!--FirstName-->
         <div class="form-group">
+<<<<<<< HEAD
         <label for="Name">FirstName</label>
         <input type="text" id="firstname" formControlName="firstname" placeholder="Enter your first name"/>
         <small *ngIf="submitted && signupForm.get('firstname')?.errors?.['required']">
@@ -38,6 +37,28 @@
         <!-- Email -->
         <div class="form-group">
           <label for="email">User name or email address</label>
+=======
+        <label for="firstname">FirstName</label>
+        <input type="text" id="firstname" formControlName="firstname" placeholder="Enter your first name" />
+        <small *ngIf="submitted && signupForm.get('firstname')?.errors?.['required']">
+          FirstName is required.
+        </small>
+        </div>
+
+        <!--LastName-->
+        <div class="form-group">
+          <label for="lastname">LastName</label>
+          <input type="text" id="lastname" formControlName="lastname" placeholder="Enter your last name" />
+          <small *ngIf="submitted && signupForm.get('lastname')?.errors?.['required']">
+            LastName is required.
+          </small>
+          </div>
+        
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email address</label>
+>>>>>>> 9fd5e340d8c965fd7145e0fabc6da19de5df579f
           <input type="email" id="email" formControlName="email" placeholder="Enter your email"/>
           <small *ngIf="submitted && signupForm.get('email')?.errors?.['required']">
             Email is required.
@@ -61,9 +82,13 @@
 
         <div class="form-group">
           <label for="confirmPassword">Confirm Password</label>
+<<<<<<< HEAD
           <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password" />
         
          
+=======
+          <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password"/>
+>>>>>>> 9fd5e340d8c965fd7145e0fabc6da19de5df579f
           <small *ngIf="submitted && signupForm.get('confirmPassword')?.errors?.['required']">
             Confirm password is required.
           </small>

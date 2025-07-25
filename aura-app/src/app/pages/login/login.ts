@@ -31,15 +31,23 @@ export class Login {
   }
 
   OnSubmit() {
+    console.log('HElloos')
     this.submitted = true;
     this.loginError = null;
   
     if (this.loginForm.invalid) return;
   
     const { email, password } = this.loginForm.value;
+<<<<<<< HEAD
     const payload ={
       Username:email,
       Password: password
+=======
+
+    const payload ={
+      Email:email,
+      Password:password
+>>>>>>> 9fd5e340d8c965fd7145e0fabc6da19de5df579f
     }
   
     this.authService.login(payload).subscribe({
