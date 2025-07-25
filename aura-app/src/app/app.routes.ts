@@ -4,6 +4,7 @@ import { ProductDetails } from './pages/product-details/product-details';
 import { authGuardGuard } from './core/auth/guards/authguard/auth-guard';
 import { NotFound } from './pages/not-found/not-found';
 import { guestGuard } from './core/auth/guards/guestGuard/guest-guard';
+import { About } from './pages/about/about';
 
 
 export const routes: Routes = [
@@ -63,6 +64,10 @@ export const routes: Routes = [
         canActivate: [authGuardGuard]
         
 
+    },
+    {
+        path:'about',
+        component: About
     },
     {
         path:'**', 

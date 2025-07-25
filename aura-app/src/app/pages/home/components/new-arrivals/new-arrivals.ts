@@ -5,6 +5,10 @@ import {CommonModule} from '@angular/common';
 import { ProductService } from '../../../../services/product.service.ts';
 import {RouterModule} from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
+import {Store} from '@ngrx/store';
+import { AppState } from '../../../../app.state';
+
+
 
 @Component({
   selector: 'app-new-arrivals',
@@ -14,7 +18,14 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class NewArrivals implements OnInit {
   @Input() arrivals: IProduct[]=[];
-  constructor(private productService : ProductService){}
+
+  
+
+  constructor(private productService : ProductService, private store:Store<AppState>){
+  }
+
+  
+
 
   ngOnInit() {
     this.productService.getProducts().subscribe((products: IProduct[]) => {
@@ -25,5 +36,7 @@ export class NewArrivals implements OnInit {
   trackByProductId(index:number, product:IProduct): number{
     return product.id;
   }
+
+
 
 }

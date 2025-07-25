@@ -10,6 +10,7 @@ import { addToCart } from '../cart/cart.actions';
 import { AppState } from '../../app.state';
 
 
+
 @Component({
   selector: 'app-product-list',
   imports: [NgFor, ProductCard, CommonModule],
@@ -27,19 +28,13 @@ export class ProductList implements OnInit{
     });
 
 }
+
 trackByProductId(index: number, product:IProduct): number{
   return product.id;
 }
 
 
 
-addToCart(product: any) {
-  console.log('Adding to cart:', product);
-  const item: ICartItem = {
-    product,
-    quantity: 1
-  };
 
-  this.store.dispatch(addToCart({ item }));
-}
+
 }

@@ -2,7 +2,7 @@
 <div *ngFor="let product of products; trackBy: trackByProductId">
   <app-product-card
   [product]="product"
-  (add)="addToCart($event)">
+  >
 </app-product-card>
 </div>
 </div>

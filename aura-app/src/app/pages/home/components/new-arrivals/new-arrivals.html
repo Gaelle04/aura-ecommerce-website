@@ -4,7 +4,8 @@
     <div class="product-list">
       <div *ngFor="let product of arrivals, trackBy: trackByProductId">
         <app-product-card
-        [product]="product">
+        [product]="product"
+        >
       </app-product-card>
       </div>
     </div>

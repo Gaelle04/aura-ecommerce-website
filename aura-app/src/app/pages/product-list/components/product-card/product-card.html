@@ -5,6 +5,6 @@
   <div class="product-card-details">
     <h3>{{ product.title }}</h3>
     <p>${{ product.price }}</p>
-    <app-buttons *ngIf="showAddToCart" (clicked)="handleAddToCart()" class="add-to-cart-btn"></app-buttons>
+    <app-buttons *ngIf="showAddToCart" (clicked)="handleAddToCart(product)" class="add-to-cart-btn"></app-buttons>
   </div>
   
