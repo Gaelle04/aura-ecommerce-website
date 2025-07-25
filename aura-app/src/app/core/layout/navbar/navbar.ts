@@ -6,6 +6,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {RouterModule} from '@angular/router';
 import { AuthService } from '../../auth/services/auth.service';
 import {Observable} from 'rxjs';
+import {Store} from '@ngrx/store';
+import { selectCartItemCount } from '../../../pages/cart/cart.selectors';
+import { AppState } from '../../../app.state';
 
 
 @Component({
@@ -17,6 +20,8 @@ import {Observable} from 'rxjs';
 })
 export class Navbar {
 
+
+
   isMenuOpen = false;
 
   toggleMenu() {
@@ -24,11 +29,12 @@ export class Navbar {
   }
   isLoggedIn$: Observable<boolean>;
   
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService, private store: Store<AppState>){
    this.isLoggedIn$= this.authService.isLoggedIn$;
+   this.cartCount$ = this.store.select(selectCartItemCount);
   }
 
-  
+  cartCount$:Observable<number>;
 
   logout() {
     this.authService.logout(); 

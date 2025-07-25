@@ -20,8 +20,8 @@
   
         <div class="form-group">
         <label for="Name">FirstName</label>
-        <input type="text" id="name" formControlName="name" placeholder="Enter your first name"/>
-        <small *ngIf="submitted && signupForm.get('name')?.errors?.['required']">
+        <input type="text" id="firstname" formControlName="firstname" placeholder="Enter your first name"/>
+        <small *ngIf="submitted && signupForm.get('firstname')?.errors?.['required']">
           Firstname is required.
         </small>
         </div>
@@ -29,8 +29,8 @@
 
         <div class="form-group">
           <label for="Name">LastName</label>
-          <input type="text" id="name" formControlName="name" placeholder="Enter your last name"/>
-          <small *ngIf="submitted && signupForm.get('name')?.errors?.['required']">
+          <input type="text" id="lastname" formControlName="lastname" placeholder="Enter your last name"/>
+          <small *ngIf="submitted && signupForm.get('lastname')?.errors?.['required']">
             Lastname is required.
           </small>
           </div>

@@ -11,6 +11,7 @@ import { Buttons } from '../../../../shared/components/buttons/buttons';
 })
 export class ProductCard {
   @Input() product: any; 
+  @Input() showAddToCart: boolean= true;
   @Output() add = new EventEmitter(); 
 
   handleAddToCart() {

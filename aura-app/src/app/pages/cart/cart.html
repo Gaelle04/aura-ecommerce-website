@@ -1,7 +1,7 @@
 
 
    
-    <div class="grid">
+    <!-- <div class="grid">
         <ag-grid-angular class="cart-table" [rowData]="rowData" [columnDefs]="colDefs"
     [columnDefs]="colDefs"
     [pagination]="pagination"
@@ -16,7 +16,40 @@
           <strong>$1000</strong>
         </div>
       </div>
+    </div> -->
+
+
+    <!-- <div class="cart-container">
+      <h2>Your Cart</h2>
+      <div *ngIf="cartItems$ | async as items; else empty">
+        <div *ngFor="let item of items">
+          <p><strong>{{ item.product.title }}</strong> × {{ item.quantity }}</p>
+          <p>Price: ${{ item.product.price }}</p>
+        </div>
+      </div>
+    
+      <ng-template #empty>
+        <p>Your cart is empty.</p>
+      </ng-template>
+    </div> -->
+
+
+    <div class="cart-container">
+      <div *ngIf="cartItems$ | async as items">
+        <div *ngIf="items.length === 0">
+          <p>Your cart is empty.</p>
+        </div>
+        <div *ngFor="let item of items">
+          <app-product-card [product]="item.product" [showAddToCart]="false">
+          </app-product-card>
+          <button class="remove-btn" (click)="removeItem(item.product.id)">Remove</button>
+          <p class="quantity">Quantity: {{ item.quantity }}</p>
+        </div>
+      </div>
     </div>
+    
+    
+
     
     
     

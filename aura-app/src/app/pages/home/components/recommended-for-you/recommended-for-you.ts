@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IProduct } from '../../../../services/product.service.ts';
+import { IProduct } from '../../../../shared/models/product.model';
 import { ProductCard } from '../../../product-list/components/product-card/product-card';
 import {CommonModule} from '@angular/common';
 import { ProductService } from '../../../../services/product.service.ts';
@@ -18,5 +18,9 @@ export class RecommendedForYou implements OnInit {
       this.RecommendedForYou = products.slice(15, 20);
     });
   }
+
+  trackByProductId(index: number, product:IProduct): number{
+    return product.id;
+}
 
 }

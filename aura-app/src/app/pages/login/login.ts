@@ -38,7 +38,7 @@ export class Login {
   
     const { email, password } = this.loginForm.value;
     const payload ={
-      Email:email,
+      Username:email,
       Password: password
     }
   

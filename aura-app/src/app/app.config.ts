@@ -4,6 +4,8 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { AuthInterceptor } from './core/auth/interceptors/auth-interceptor';
+import { cartReducer } from './pages/cart/cart.reducer';
+import {provideStore} from '@ngrx/store';
 
 
 export const appConfig: ApplicationConfig = {
@@ -12,5 +14,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes), provideClientHydration(withEventReplay()), 
     provideHttpClient(withFetch(), withInterceptors([AuthInterceptor])),
+    provideStore({cart: cartReducer})
   ]
 };

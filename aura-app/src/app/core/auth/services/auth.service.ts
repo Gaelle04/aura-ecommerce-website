@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   private readonly token_key = 'auth_token';
-  private readonly loginUrl = 'http://192.168.1.187:5005/api/User/Login';
-  private readonly signupUrl = 'http://192.168.1.187:5005/api/User/Register';
+  private readonly loginUrl = 'http://192.168.7.156:5005/api/User/Login()';
+  private readonly signupUrl = 'http://192.168.7.156:5005/api/User/SignUp()';
 
   private loggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   isLoggedIn$ = this.loggedInSubject.asObservable();
@@ -19,12 +19,12 @@ export class AuthService {
     this.loggedInSubject.next(value);
   }
 
-  login(credentials: { Email: string; Password: string }) {
+  login(credentials: { Username: string; Password: string }) {
     return this.http.post<{ token: string }>(this.loginUrl, credentials);
   }
 
-  signup(credentials: {Firstname: string;Lastname:string,  Email: string; Password: string , RoleName:string}) {
-    return this.http.post<{ token: string }>(this.signupUrl, credentials);
+  signup(credentials: {Firstname: string;Lastname:string,  Email: string; Password: string , RoleName?:string}) {
+    return this.http.post<{ id: number }>(this.signupUrl, credentials);
   }
 
   private isBrowser(): boolean {

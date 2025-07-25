@@ -1,9 +1,10 @@
 import { Component , OnInit, OnDestroy, NgZone} from '@angular/core';
 import { Buttons } from '../../shared/components/buttons/buttons';
-import { IProduct } from '../../services/product.service.ts';
+import { IProduct } from '../../shared/models/product.model';
 import { NewArrivals } from './components/new-arrivals/new-arrivals';
 import { FeaturedCategories } from './components/featured-categories/featured-categories';
 import { RecommendedForYou } from './components/recommended-for-you/recommended-for-you';
+
 
 
 @Component({

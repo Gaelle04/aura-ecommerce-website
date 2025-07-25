@@ -42,6 +42,36 @@
         margin-right: 15rem;
       }
     }
+
+
+    .cart-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+     transform: translate(-50%, 50%);
+      background-color: #ff1744;
+      color: white;
+      border-radius: 50%;
+      padding: 0.3rem 0.4rem;
+      font-size: 0.75rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.4rem;
+      height: 1.4rem;
+      box-shadow: 0 0 0 2px white;
+      z-index: 10;
+    }
+    
+
+    .cart-icon-container {
+      position: relative;
+    }
+    
+
+
+    
   
     mat-icon {
       color: #2e004f;

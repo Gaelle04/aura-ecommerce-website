@@ -73,3 +73,29 @@
     }
   }
   
+  .remove-btn{
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 11px 17px;
+    border-radius: 10px;
+    cursor: pointer;
+    align-items: center;
+    margin-left:5.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+
+
+
+
+    &:hover {
+      background-color: #ffffff;
+      color:#ff4d4d;
+      
+  }
+}
+
+.quantity{
+  margin-left:6rem;
+}

@@ -2,9 +2,10 @@
 <section class="new-arrivals">
     <h2>Recommended for you</h2>
     <div class="product-list">
-      <app-product-card
-        *ngFor="let product of RecommendedForYou"
+      <div *ngFor="let product of RecommendedForYou, trackBy: trackByProductId">
+        <app-product-card
         [product]="product">
       </app-product-card>
+      </div>
     </div>
   </section>

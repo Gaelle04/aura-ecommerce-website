@@ -1,15 +1,10 @@
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
-import { ProductList } from './pages/product-list/product-list';
-import { Login } from './pages/login/login';
 import { ProductDetails } from './pages/product-details/product-details';
-import { Signup } from './pages/signup/signup';
-import { Profile } from './pages/profile/profile';
 import { authGuardGuard } from './core/auth/guards/authguard/auth-guard';
 import { NotFound } from './pages/not-found/not-found';
 import { guestGuard } from './core/auth/guards/guestGuard/guest-guard';
-import { Dashboard } from './pages/dashboard/dashboard';
-import { Cart } from './pages/cart/cart';
+
 
 export const routes: Routes = [
 
@@ -22,30 +17,40 @@ export const routes: Routes = [
 
     {
         path:'login', 
-        component: Login,
+        loadChildren: () =>
+        import('./pages/login/login.routes').then(m => m.routes),
         canActivate: [guestGuard]
     }, 
     {
         path:'cart', 
-        component: Cart,
-       // canActivate: [authGuardGuard]
+        loadChildren: () =>
+        import('./pages/cart/cart.routes').then(m => m.routes),
+        //canActivate: [authGuardGuard]
     }, 
 
     {
         path:'profile', 
-        component: Profile,
+        loadChildren: () =>
+        import('./pages/profile/profile.routes').then(m => m.routes),
         canActivate: [authGuardGuard]
     }, 
-
+    {
+        path:'favorites', 
+        loadChildren: () =>
+        import('./pages/favorites/favorites.routes').then(m => m.routes),
+        canActivate: [authGuardGuard]
+    }, 
     {
         path:'signup', 
-        component: Signup,
+        loadChildren: () =>
+        import('./pages/signup/signup.routes').then(m => m.routes),
         canActivate: [guestGuard]
     }, 
 
     {
         path:'products',
-        component: ProductList
+        loadChildren: () =>
+        import('./pages/product-list/product-list.routes').then(m => m.routes),
     }, 
     {
         path:'product/:id', 
@@ -53,7 +58,9 @@ export const routes: Routes = [
     }, 
     {
         path:'dashboard',
-        component:Dashboard,
+        loadChildren: () =>
+        import('./pages/dashboard/dashboard.routes').then(m => m.routes),
+        canActivate: [authGuardGuard]
         
 
     },
