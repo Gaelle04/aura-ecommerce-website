@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input,  inject, Signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Buttons } from '../../../../shared/components/buttons/buttons';
 import { CartService } from '../../../../shared/services/cartService/cart.service';
@@ -7,6 +7,7 @@ import { IProduct } from '../../../../shared/models/product.model';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from'@angular/material/button';
 import{MatToolbarModule} from '@angular/material/toolbar';
+import { FavoritesService } from '@app/shared/services/favoritesService/favorites.service';
 
 @Component({
   selector: 'app-product-card',
@@ -15,12 +16,21 @@ import{MatToolbarModule} from '@angular/material/toolbar';
   templateUrl: './product-card.html',
   styleUrls: ['./product-card.scss']
 })
-export class ProductCard {
-  @Input() product: any; 
+export class ProductCard implements OnInit{
+  @Input() product!: any; 
   @Input() showAddToCart: boolean= true;
+  isFavorite!: Signal<boolean>;
+
+  private favService = inject(FavoritesService);
+
+  ngOnInit() {
+    this.isFavorite = this.favService.isFavorite(this.product.id);
+  }
   // @Output() add = new EventEmitter(); 
 
   constructor(private cartservice: CartService){}
+
+  
 
   handleAddToCart(product :IProduct) {
     // this.add.emit(this.product);
@@ -31,5 +41,12 @@ export class ProductCard {
     }
     this.cartservice.addItem(item);
   }
+
+  toggleFavorite(){
+    this.favService.toggle(this.product);
+  }
+
+  
+
 }
 

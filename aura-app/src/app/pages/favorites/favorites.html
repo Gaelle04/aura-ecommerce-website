@@ -1,1 +1,13 @@
-<p>favorites works!</p>
+<h2>Your Favorites</h2>
+
+<div *ngIf="favoriteItems().length; else empty">
+  <app-product-card
+    *ngFor="let product of favoriteItems()"
+    [product]="product">
+  </app-product-card>
+</div>
+
+<ng-template #empty>
+  <p>No favorite items yet.</p>
+</ng-template>
+

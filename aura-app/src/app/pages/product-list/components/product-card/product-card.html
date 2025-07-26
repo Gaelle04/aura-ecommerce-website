@@ -6,6 +6,6 @@
     <h3>{{ product.title }}</h3>
     <p>${{ product.price }}</p>
     <app-buttons *ngIf="showAddToCart" (clicked)="handleAddToCart(product)" class="add-to-cart-btn"></app-buttons>
-    <span><button mat-icon-button class="fav-icon-btn"><mat-icon>favorite_border</mat-icon></button></span>
+    <span><button mat-icon-button class="fav-icon-btn" (click)="toggleFavorite()"><mat-icon>{{ isFavorite() ? 'favorite' : 'favorite_border' }}</mat-icon></button></span>
   </div>
   
