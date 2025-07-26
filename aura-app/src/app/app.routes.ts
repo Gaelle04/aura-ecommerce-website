@@ -39,7 +39,7 @@ export const routes: Routes = [
         path:'favorites', 
         loadChildren: () =>
         import('./pages/favorites/favorites.routes').then(m => m.routes),
-        canActivate: [authGuardGuard]
+        //canActivate: [authGuardGuard]
     }, 
     {
         path:'signup', 

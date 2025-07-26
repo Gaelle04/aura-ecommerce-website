@@ -4,11 +4,14 @@ import { Buttons } from '../../../../shared/components/buttons/buttons';
 import { CartService } from '../../../../shared/services/cart.service';
 import { ICartItem } from '../../../../shared/models/cart-item.model';
 import { IProduct } from '../../../../shared/models/product.model';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from'@angular/material/button';
+import{MatToolbarModule} from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, Buttons],
+  imports: [CommonModule, Buttons, MatButtonModule, MatIconModule, MatToolbarModule],
   templateUrl: './product-card.html',
   styleUrls: ['./product-card.scss']
 })
