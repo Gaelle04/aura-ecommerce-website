@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import { ICartItem } from '../models/cart-item.model';
+import { ICartItem } from '../../models/cart-item.model';
 import {Store} from '@ngrx/store';
-import { AppState } from '../../app.state';
-import {  selectCartItems } from '../../pages/cart/cart.selectors';
-import { addToCart, clearCart, removeFromCart } from '../../pages/cart/cart.actions';
+import { AppState } from '../../../app.state';
+import {  selectCartItems } from '../../../pages/cart/cart.selectors';
+import { addToCart, clearCart, removeFromCart } from '../../../pages/cart/cart.actions';
 
 
 

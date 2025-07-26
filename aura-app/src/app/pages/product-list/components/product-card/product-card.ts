@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Buttons } from '../../../../shared/components/buttons/buttons';
-import { CartService } from '../../../../shared/services/cart.service';
+import { CartService } from '../../../../shared/services/cartService/cart.service';
 import { ICartItem } from '../../../../shared/models/cart-item.model';
 import { IProduct } from '../../../../shared/models/product.model';
 import {MatIconModule} from '@angular/material/icon';
