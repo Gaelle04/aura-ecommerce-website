@@ -15,11 +15,7 @@ import { AppState } from '../../../../app.state';
 })
 export class RecommendedForYou implements OnInit {
   @Input() RecommendedForYou: IProduct[]=[];
-<<<<<<< HEAD
-  constructor(private productService: ProductService, private store: Store<AppState>){}
-=======
   constructor(private productService: ProductService){}
->>>>>>> 9fd5e340d8c965fd7145e0fabc6da19de5df579f
   ngOnInit() {
     this.productService.getProducts().subscribe((products: IProduct[]) => {
       this.RecommendedForYou = products.slice(15, 20);

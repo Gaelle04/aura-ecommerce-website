@@ -49,30 +49,12 @@ export class Signup implements OnInit {
   }
 
   OnSubmit() {
-<<<<<<< HEAD
 
     
-=======
-    console.log('HElloos')
->>>>>>> 9fd5e340d8c965fd7145e0fabc6da19de5df579f
     this.submitted = true;
 
     if (this.signupForm.invalid) return;
 
-<<<<<<< HEAD
-    const { firstname,lastname,  email, password} = this.signupForm.value;
-
-    const payload ={
-      Firstname:firstname,
-      Lastname: lastname,
-      Email: email,
-      Password: password,
-    }
-
-    console.log(payload);
-    this.authService.signup(payload).subscribe({
-      next: () => {
-=======
     const { firstname,lastname,  email, password, rolename } = this.signupForm.value;
     const payload = {
       Firstname: firstname,
@@ -83,10 +65,9 @@ export class Signup implements OnInit {
     };
     
     this.authService.signup(payload).subscribe({
-      next: (res: { token: string; }) => {
+      next: (res: any) => {
         this.authService.setToken(res.token);
         this.authService.setLoggedIn(true);
->>>>>>> 9fd5e340d8c965fd7145e0fabc6da19de5df579f
         this.router.navigate(['/login']);
       },
       error: (err: any) => {

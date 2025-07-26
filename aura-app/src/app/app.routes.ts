@@ -24,12 +24,8 @@ export const routes: Routes = [
     }, 
     {
         path:'cart', 
-<<<<<<< HEAD
         loadChildren: () =>
         import('./pages/cart/cart.routes').then(m => m.routes),
-=======
-        component: Cart,
->>>>>>> 9fd5e340d8c965fd7145e0fabc6da19de5df579f
         //canActivate: [authGuardGuard]
     }, 
 
