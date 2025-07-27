@@ -45,12 +45,20 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 1rem;
+    
+  
 
     .add-to-cart-btn{
       
         margin-top: 2rem;
         align-self: center;
       
+    }
+
+    .product-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
 
    

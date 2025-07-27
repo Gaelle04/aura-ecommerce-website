@@ -1,9 +1,11 @@
 <div class="product-list">
 <div *ngFor="let product of products; trackBy: trackByProductId">
+  <a [routerLink]="['/product-details', product.id]" class="product-link">
   <app-product-card
   [product]="product"
   >
 </app-product-card>
+</a>
 </div>
 </div>
 

@@ -1,15 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IProduct } from '../../../../shared/models/product.model';
+import { IProduct } from '@app/shared/models/IProduct.model';
 import { ProductCard } from '../../../product-list/components/product-card/product-card';
 import {CommonModule} from '@angular/common';
 import { ProductService } from '../../../../services/product.service.ts';
-import {Store} from '@ngrx/store';
-import { AppState } from '../../../../app.state';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-recommended-for-you',
-  imports: [ProductCard, CommonModule],
+  imports: [ProductCard, CommonModule, RouterLink],
   templateUrl: './recommended-for-you.html',
   styleUrl: './recommended-for-you.scss'
 })

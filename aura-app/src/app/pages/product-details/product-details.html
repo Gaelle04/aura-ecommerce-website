@@ -1,1 +1,33 @@
-<p>product-details works!</p>
+<div *ngIf="product as product" class="product-details">
+    <div class="product-card">
+      <img [src]="product.image" alt="{{ product.title }}" />
+    </div>
+  
+    <div class="product-card-details">
+      <h3>{{ product.title }}</h3>
+      <p class="category">{{ product.category }}</p>
+  
+      <p class="description">{{ product.description }}</p>
+  
+      <div class="price-rating">
+        <p class="price">$ {{ product.price }}</p>
+        <div class="rating">
+          ⭐ {{ product.rating.rate }} / 5
+          <span class="count">({{ product.rating.count }} reviews)</span>
+        </div>
+      </div>
+  
+      <div class="actions">
+        <app-buttons
+          *ngIf="showAddToCart"
+          (clicked)="handleAddToCart(product)"
+          class="add-to-cart-btn"
+        ></app-buttons>
+  
+        <button mat-icon-button class="fav-icon-btn" (click)="toggleFavorite()">
+          <mat-icon>{{ isFavorite() ? 'favorite' : 'favorite_border' }}</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  

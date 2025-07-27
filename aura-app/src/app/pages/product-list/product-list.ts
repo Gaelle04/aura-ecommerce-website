@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService} from '../../services/product.service.ts';
-import { IProduct } from '../../shared/models/product.model';
-import{NgFor} from '@angular/common';
+import { IProduct } from '@app/shared/models/IProduct.model';
 import {CommonModule} from '@angular/common';
 import {Store} from '@ngrx/store';
 import { ProductCard } from './components/product-card/product-card';
-import { ICartItem } from '../../shared/models/cart-item.model';
-import { addToCart } from '../cart/cart.actions';
 import { AppState } from '../../app.state';
+import { RouterLink } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-product-list',
-  imports: [NgFor, ProductCard, CommonModule],
+  imports: [ ProductCard, CommonModule, RouterLink],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss'
 })

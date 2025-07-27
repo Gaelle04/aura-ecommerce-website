@@ -1,4 +1,4 @@
-import { IProduct } from "./product.model";
+import { IProduct } from "./IProduct.model";
 
 export class ICartItem{
     product!: IProduct;

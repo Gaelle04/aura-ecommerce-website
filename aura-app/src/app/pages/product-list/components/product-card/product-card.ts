@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Buttons } from '../../../../shared/components/buttons/buttons';
 import { CartService } from '../../../../shared/services/cartService/cart.service';
 import { ICartItem } from '../../../../shared/models/cart-item.model';
-import { IProduct } from '../../../../shared/models/product.model';
+import { IProduct } from '@app/shared/models/IProduct.model';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from'@angular/material/button';
 import{MatToolbarModule} from '@angular/material/toolbar';
@@ -26,15 +26,13 @@ export class ProductCard implements OnInit{
   ngOnInit() {
     this.isFavorite = this.favService.isFavorite(this.product.id);
   }
-  // @Output() add = new EventEmitter(); 
+  
 
   constructor(private cartservice: CartService){}
 
   
 
   handleAddToCart(product :IProduct) {
-    // this.add.emit(this.product);
-    // call cart service add to cart method
     const item: ICartItem={
       product, 
       quantity:1,

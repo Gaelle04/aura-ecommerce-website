@@ -54,7 +54,7 @@ export const routes: Routes = [
         import('./pages/product-list/product-list.routes').then(m => m.routes),
     }, 
     {
-        path:'product/:id', 
+        path:'product-details/:id', 
         component:ProductDetails,
     }, 
     {
