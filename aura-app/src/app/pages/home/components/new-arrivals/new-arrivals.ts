@@ -7,14 +7,14 @@ import {RouterModule} from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {Store} from '@ngrx/store';
 import { AppState } from '../../../../app.state';
-import { RouterLink } from '@angular/router';
+
 
 
 
 
 @Component({
   selector: 'app-new-arrivals',
-  imports: [CommonModule, ProductCard, RouterModule, MatIconModule, RouterLink],
+  imports: [CommonModule, ProductCard, RouterModule, MatIconModule],
   templateUrl: './new-arrivals.html',
   styleUrl: './new-arrivals.scss'
 })

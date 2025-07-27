@@ -5,13 +5,13 @@ import {CommonModule} from '@angular/common';
 import {Store} from '@ngrx/store';
 import { ProductCard } from './components/product-card/product-card';
 import { AppState } from '../../app.state';
-import { RouterLink } from '@angular/router';
+
 
 
 
 @Component({
   selector: 'app-product-list',
-  imports: [ ProductCard, CommonModule, RouterLink],
+  imports: [ ProductCard, CommonModule],
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss'
 })

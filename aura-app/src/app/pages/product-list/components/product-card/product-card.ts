@@ -8,11 +8,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from'@angular/material/button';
 import{MatToolbarModule} from '@angular/material/toolbar';
 import { FavoritesService } from '@app/shared/services/favoritesService/favorites.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, Buttons, MatButtonModule, MatIconModule, MatToolbarModule],
+  imports: [CommonModule, Buttons, MatButtonModule, MatIconModule, MatToolbarModule, RouterLink],
   templateUrl: './product-card.html',
   styleUrls: ['./product-card.scss']
 })

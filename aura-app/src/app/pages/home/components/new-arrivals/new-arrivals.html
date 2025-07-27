@@ -3,12 +3,10 @@
     <h3>Just dropped</h3>
     <div class="product-list">
       <div *ngFor="let product of arrivals, trackBy: trackByProductId">
-        <a [routerLink]="['/product-details', product.id]" class="product-link">
         <app-product-card
         [product]="product"
         >
       </app-product-card>
-      </a>
       </div>
     </div>
       <a [routerLink]="['/products']" class="load-more">

@@ -1,6 +1,7 @@
-<h2>Your Favorites</h2>
+
 
 <div *ngIf="favoriteItems().length; else empty">
+  <h2>Your Favorites</h2>
   <app-product-card
     *ngFor="let product of favoriteItems()"
     [product]="product">
@@ -8,6 +9,6 @@
 </div>
 
 <ng-template #empty>
-  <p>No favorite items yet.</p>
+  <p class="empty">No favorite items yet.</p>
 </ng-template>
 

@@ -3,12 +3,12 @@ import { IProduct } from '@app/shared/models/IProduct.model';
 import { ProductCard } from '../../../product-list/components/product-card/product-card';
 import {CommonModule} from '@angular/common';
 import { ProductService } from '../../../../services/product.service.ts';
-import { RouterLink } from '@angular/router';
+
 
 
 @Component({
   selector: 'app-recommended-for-you',
-  imports: [ProductCard, CommonModule, RouterLink],
+  imports: [ProductCard, CommonModule],
   templateUrl: './recommended-for-you.html',
   styleUrl: './recommended-for-you.scss'
 })
