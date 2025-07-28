@@ -48,6 +48,7 @@ constructor(private route: ActivatedRoute, private productService: ProductServic
   }
   
   handleAddToCart(product :IProduct) {
+
     const item: ICartItem={
       product, 
       quantity:1,

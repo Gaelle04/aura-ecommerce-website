@@ -1,0 +1,12 @@
+<h2>{{ category | titlecase }}</h2>
+
+<div class="products-grid">
+  <app-product-card
+    *ngFor="let product of filteredProducts()"
+    [product]="product"
+  ></app-product-card>
+</div>
+
+<div *ngIf="filteredProducts().length === 0">
+  <p>No products found in this category.</p>
+</div>

@@ -65,6 +65,12 @@ export const routes: Routes = [
         
 
     },
+      {
+        path:'categories/:slug',
+        loadComponent: () =>
+        import('./pages/categories/categories').then(m => m.Categories)
+      },
+      
     {
         path:'about',
         component: About

@@ -4,7 +4,6 @@ import {MatButtonModule} from'@angular/material/button';
 import{MatToolbarModule} from '@angular/material/toolbar';
 import { FavoritesService } from '@app/shared/services/favoritesService/favorites.service';
 import { ProductCard } from '../product-list/components/product-card/product-card';
-import { IProduct } from '@app/shared/models/IProduct.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,8 +13,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './favorites.scss'
 })
 export class Favorites {
-
-  
   readonly favoriteItems = inject(FavoritesService).favoriteItems;
 
 }

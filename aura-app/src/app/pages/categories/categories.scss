@@ -1,26 +1,16 @@
-
-
-
-.empty{
-    text-align: center;
-     padding: 6rem;
-     font-family: 'Afacad', sans-serif;
-     font-size: 30px;
-     color:#2e003e;
-     
- }
-
-
- h2 {
+h2 {
     font-size: 2rem;
     margin: 2rem 0 1.5rem;
     text-align: left;
     color: #2e003e;
     padding-left: 70px;
   }
- .favorites-grid{
+  
+  .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 2rem;
     padding: 1rem 4rem;
- }
+  }
+  
+  

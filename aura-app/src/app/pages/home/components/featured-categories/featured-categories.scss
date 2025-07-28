@@ -1,111 +1,70 @@
 .featured-categories {
-    padding: 2rem;
-    padding-left:100px;
-    padding-right:100px;
-    max-width:1400px;
-    margin: 0 auto;
-    margin-bottom:5rem;
-    
-    h2 {
-      font-size:3rem;
-      color: #2e003e;
-      margin-bottom: 1.5rem;
-      
-    }
+  padding: 2rem 100px;
+  max-width: 1400px;
+  margin: 0 auto 5rem auto;
 
-    h3{
-        font-size:1rem;
-        color:#2e003e;
-        margin-bottom: 3rem;
-        font-style:italic;
-
-    }
-
-    .categories-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        justify-items: center;
-        padding: 8rem 4rem;
-        border-radius: 2rem;
-        background-image: url('/assets/flowers.png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        
-      }
-      
-      .category-card {
-        background-color: #ffffff;
-        padding: 1rem;
-        border-radius: 30px;
-        text-align: center;
-        width: 200px;
-        transition: transform 0.3s ease-in-out;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-      
-        &:hover {
-          transform: translateY(-5px);
-          cursor: pointer;
-        }
-      
-        img {
-            height: 250px; 
-            width: auto;
-            object-fit: contain;
-            margin: 0 auto 0.5rem auto;
-            display: block;
-        }
-      
-        p {
-          font-weight: 600;
-          color: #2e003e;
-          margin: 0;
-          text-decoration: none;
-        }
-      }
-    } 
-    
-    .category-card-shoe{
-        background-color: #ffffff;
-        padding: 1rem;
-        border-radius: 30px;
-        text-align: center;
-        width: 200px;
-        transition: transform 0.3s ease-in-out;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-      
-        &:hover {
-          transform: translateY(-5px);
-          cursor: pointer;
-        }
-      
-        img {
-            height: 130px; 
-            width: auto;
-            object-fit: contain;
-            margin: 0 auto 0.5rem auto;
-            display: block;
-            padding-top: 20px;
-        }
-      
-        p {
-          font-weight: 600;
-          color: #280036;
-          margin: 0;
-          padding-top: 89px;
-          text-decoration: none;
-        }
-
-        
-      }
-    
- .seperator{
-    border: none;
-    border-bottom: 2px solid #2e003e;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    width: 100%;
+  h2 {
+    font-size: 3rem;
+    color: #2e003e;
+    margin-bottom: 1.5rem;
   }
+
+  h3 {
+    font-size: 1rem;
+    color: #2e003e;
+    margin-bottom: 3rem;
+    font-style: italic;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    padding: 8rem 4rem;
+    border-radius: 2rem;
+    background-image: url('/assets/flowers.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .category-card {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 30px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+
+    &:hover {
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+
+    img {
+      height: 150px;
+      width: auto;
+      object-fit: contain;
+      margin: 0 auto 0.5rem auto;
+      display: block;
+    }
+
+    p {
+      font-weight: 600;
+      color: #2e003e;
+      margin: 0;
+    }
+  }
+}
+
+.seperator {
+  border: none;
+  border-bottom: 2px solid #2e003e;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  width: 100%;
+}
