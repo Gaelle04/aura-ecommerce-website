@@ -36,6 +36,7 @@
       flex: 1;
       display: flex;
       justify-content: center;
+      padding-left:20rem;
   
       .logo {
         height: 70px;
@@ -77,6 +78,16 @@
     button {
       background: none;
       border: none;
+    }
+
+
+    .search-bar{
+      border-radius: 30px;
+      height:40px;
+      width: 270px;
+      border-color: #2e004f;
+     
+
     }
 
     .mobile-menu-toggle {

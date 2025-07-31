@@ -15,7 +15,9 @@
     </div>
   
     <div class="nav-right">
+  
       <input type="search"
+      class="search-bar"
        [(ngModel)]="query"
        placeholder="Search products"
        (keyup.enter)="searchByKeyword()" />
