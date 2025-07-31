@@ -1,4 +1,4 @@
-import { Component, computed, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ProductService} from '../../services/product.service.ts';
 import { IProduct } from '@app/shared/models/IProduct.model';
 import {CommonModule} from '@angular/common';
@@ -7,6 +7,7 @@ import { ProductCard } from './components/product-card/product-card';
 import { AppState } from '../../app.state';
 import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -24,11 +25,12 @@ export class ProductList implements OnInit{
 
   products = signal<IProduct[]>([]);
   filteredProducts= signal<IProduct[]>([]);
+  searchResults = signal <IProduct[]>([]);
 
   constructor(private productService: ProductService, private store:Store<AppState>){}
 
-  
-
+  private route = inject(ActivatedRoute);
+  keyword = '';
 
 
   Apply(){
@@ -54,14 +56,26 @@ export class ProductList implements OnInit{
     this.productService.getProducts().subscribe((data: IProduct[] = []) => {
       this.products.set(data);
       this.filteredProducts.set(data);
+      this.applySearchFromQuery();
     });
 
+    this.route.queryParamMap.subscribe(() => this.applySearchFromQuery());
+
 }
 
+private applySearchFromQuery() {
+  const q = (this.route.snapshot.queryParamMap.get('q') ?? '').trim().toLowerCase();
 
-private getPrice(p: IProduct): number {
-  return (p as any).price ?? (p as any).Price ?? 0;
+  if(!q){
+    this.searchResults.set([...this.products()]);
+    return;
+  }
+  const filtered = this.products().filter(p =>
+    String((p as any).title ?? '').toLowerCase().includes(q)
+  );
+  this.searchResults.set(filtered);
 }
+
 
 trackByProductId(index: number, product:IProduct): number{
   return product.id;

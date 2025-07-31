@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import{MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from'@angular/material/button';
 import {CommonModule} from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Router} from '@angular/router';
 import { AuthService } from '../../auth/services/auth.service';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import { selectCartItemCount } from '../../../pages/cart/cart.selectors';
 import { AppState } from '../../../app.state';
+import { IProduct } from '@app/shared/models/IProduct.model';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   standalone: true,
   selector: 'app-navbar',
-  imports: [CommonModule,MatButtonModule, MatToolbarModule, MatIconModule, RouterModule],
+  imports: [CommonModule,MatButtonModule, MatToolbarModule, MatIconModule, RouterModule, FormsModule],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.scss']
 })
@@ -23,13 +25,14 @@ export class Navbar {
 
 
   isMenuOpen = false;
+  products: IProduct[]=[];
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
   isLoggedIn$: Observable<boolean>;
   
-  constructor(private authService: AuthService, private store: Store<AppState>){
+  constructor(private authService: AuthService, private store: Store<AppState>, private router: Router){
    this.isLoggedIn$= this.authService.isLoggedIn$;
    this.cartCount$ = this.store.select(selectCartItemCount);
   }
@@ -38,6 +41,13 @@ export class Navbar {
 
   logout() {
     this.authService.logout(); 
+  }
+
+  query= '';
+
+  searchByKeyword() {
+    const q = this.query?.trim();
+    this.router.navigate(['/products'], { queryParams: q ? { q } : {} });
   }
   
 }

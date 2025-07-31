@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet, Router } from '@angular/router';
 import { Navbar } from './core/layout/navbar/navbar';
 import { Footer } from './core/layout/footer/footer';
-import {NgIf} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { NavigationEnd} from '@angular/router';
 
@@ -11,7 +11,7 @@ import { NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Footer, NgIf],
+  imports: [RouterOutlet, Navbar, Footer, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
