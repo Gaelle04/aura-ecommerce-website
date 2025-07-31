@@ -37,7 +37,7 @@ export class ProductList implements OnInit{
     const min = this.minPrice ?? 0;
     const max = this.maxPrice ?? Infinity;
 
-    const result = this.products().filter(p => {
+    const result = this.filteredProducts().filter(p => {
       const price = (p as any).price ?? 0;
       return price >= min && price <= max;
     });
@@ -67,13 +67,13 @@ private applySearchFromQuery() {
   const q = (this.route.snapshot.queryParamMap.get('q') ?? '').trim().toLowerCase();
 
   if(!q){
-    this.searchResults.set([...this.products()]);
+    this.filteredProducts.set([...this.products()]);
     return;
   }
   const filtered = this.products().filter(p =>
     String((p as any).title ?? '').toLowerCase().includes(q)
   );
-  this.searchResults.set(filtered);
+  this.filteredProducts.set(filtered);
 }
 
 

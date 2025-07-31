@@ -10,7 +10,7 @@
   </div>
 
   <div class="product-grid">
-    <div class="product-item" *ngFor="let product of searchResults(); trackBy: trackByProductId">
+    <div class="product-item" *ngFor="let product of filteredProducts(); trackBy: trackByProductId">
         <app-product-card
         [product]="product"
         >
