@@ -9,6 +9,8 @@ export class AuthService {
   private readonly token_key = 'auth_token';
   private readonly loginUrl = 'http://192.168.7.156:5005/api/User/Login()';
   private readonly signupUrl = 'http://192.168.7.156:5005/api/User/SignUp()';
+  private readonly current_email_key ='current_email';
+  //private readonly ADMIN_emial= "gaelleetohme2004@gmail.com";
 
   private loggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   isLoggedIn$ = this.loggedInSubject.asObservable();
@@ -51,11 +53,29 @@ export class AuthService {
   logout(): void {
     if (this.isBrowser()) {
       localStorage.removeItem(this.token_key);
+      this.clearCurrenTEmail();
       this.setLoggedIn(false);
     }
   }
 
   isAuthenticated(): boolean {
     return this.hasToken();
+  }
+
+  setCurrentEmail(email:string):void{
+    if(this.isBrowser()){
+      localStorage.setItem(this.current_email_key, email);
+    }
+  }
+
+  getCurrentEmail(): string | null{
+   return this.isBrowser() ? localStorage.getItem(this.current_email_key): null;
+
+  }
+
+  clearCurrenTEmail():void{
+    if(this.isBrowser()){
+      localStorage.removeItem(this.current_email_key);
+    }
   }
 }

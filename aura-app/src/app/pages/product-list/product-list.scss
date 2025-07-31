@@ -1,17 +1,60 @@
+
 .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-    background-color: #fdf4fb; // Light pink background
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
- 
-  
- 
-  
-  
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  column-gap: 2rem;
+  background-color: #fdf4fb;
+  padding: 2rem;
+
+}
+
+.filter-bar {
+  grid-column: 1;
+}
+
+h2 {
+  margin: 0 0 .85rem;
+  color: #130145;
+}
+
+.filter-bar {
+  gap: 20px;
+  position: sticky;      
+  top: 96px;             
+}
+
+.filter-bar input[type="number"] {
+  width: 70px;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.filter-bar input[type="number"]:focus {
+  outline: none;
+  border-color: #7c4dff;
+  box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.15);
+}
+
+.filter-bar button {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.filter-bar button:hover { background: #f6f6f6; }
+
+
+.product-grid {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* card width */
+  gap: 1.5rem;    
+  align-content: start;
+}
+
+
+a { text-decoration: none; color: inherit; }

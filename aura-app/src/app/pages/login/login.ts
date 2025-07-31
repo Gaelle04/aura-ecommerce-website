@@ -46,7 +46,8 @@ export class Login {
     this.authService.login(payload).subscribe({
       next: (response: { token: string }) => {
         this.authService.setToken(response.token);
-        this.authService.setLoggedIn(true);  
+        this.authService.setLoggedIn(true); 
+        this.authService.setCurrentEmail(email); 
         this.router.navigate(['/']);
       },
       error: () => {

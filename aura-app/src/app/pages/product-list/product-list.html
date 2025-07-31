@@ -1,11 +1,22 @@
 <div class="product-list">
-<div *ngFor="let product of products; trackBy: trackByProductId">
-  <app-product-card
-  [product]="product"
-  >
-</app-product-card>
+  
+  <div class="filter-bar">
+    <h2>Filter by price</h2>
+    <input type="number" [(ngModel)]="minPrice" placeholder="Min price" min="0" step="0.01" />
+    <input type="number" [(ngModel)]="maxPrice" placeholder="Max price" min="0" step="0.01" />
+    <button type="button" (click)="Apply()">Apply</button>
+    <button type="button" (click)="clearFilter()">Clear</button>
 
-</div>
+  </div>
+
+  <div class="product-grid">
+    <div *ngFor="let product of filteredProducts(); trackBy: trackByProductId">
+        <app-product-card
+        [product]="product"
+        >
+      </app-product-card>
+      </div>
+      </div>
 </div>
 
   

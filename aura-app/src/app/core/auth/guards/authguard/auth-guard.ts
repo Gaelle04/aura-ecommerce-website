@@ -7,9 +7,13 @@ export const authGuardGuard: CanActivateFn = (route: any, state: any) => {
   const authService=inject(AuthService);
   const router = inject(Router);
 
-  if(authService.isAuthenticated()){
+   const ADMIN_EMAIL = 'ali.admin@gmail.com';
+   const current_email= authService.getCurrentEmail();
+
+   if(current_email && current_email.toLocaleLowerCase() ===ADMIN_EMAIL.toLocaleLowerCase()){
     return true;
-  }
+   }
+
   else{
     router.navigate(['/login']);
     return false;
