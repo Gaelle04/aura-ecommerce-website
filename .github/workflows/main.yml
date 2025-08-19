@@ -23,7 +23,7 @@ jobs:
         with:
          
           username: ${{ secrets.username }}
-          password: ${{ secrets.password }}  
+          password: ${{ secrets.newpassword }}  
 
       - name: Build & Push
         uses: docker/build-push-action@v6
