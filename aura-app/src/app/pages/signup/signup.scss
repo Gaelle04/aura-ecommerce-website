@@ -221,23 +221,19 @@
   }
   
   /* Responsive */
-  @media (max-width: 768px) {
-    .login-page {
-      flex-direction: column;
-  
-      .login-pic,
-      .login-form-container {
-        width: 100%;
-      }
-  
-      .login-pic img {
-        max-width: 90%;
-        margin: 0 auto;
-      }
-  
-      .login-form-container {
-        padding: 2rem;
+  @media (max-width: 400px) {
+    .signup-page {
+      
+  .signup-pic{
+    height: 0%;
+  }
+      .signup-form-container {
+      //  padding: 2rem;
+        max-width:50%;
+        height:80vh;
+        padding-right: 100px;
+       
+
       }
     }
   }
-  

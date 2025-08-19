@@ -221,22 +221,19 @@
   }
   
   /* Responsive */
-  @media (max-width: 768px) {
+  @media (max-width: 400px) {
     .login-page {
-      flex-direction: column;
-  
-      .login-pic,
+      
+  .login-pic{
+    height: 0%;
+  }
       .login-form-container {
-        width: 100%;
-      }
-  
-      .login-pic img {
-        max-width: 90%;
-        margin: 0 auto;
-      }
-  
-      .login-form-container {
-        padding: 2rem;
+      //  padding: 2rem;
+        max-width:50%;
+        height:80vh;
+        padding-right: 100px;
+       
+
       }
     }
   }

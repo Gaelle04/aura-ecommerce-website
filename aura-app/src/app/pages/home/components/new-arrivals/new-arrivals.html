@@ -1,6 +1,7 @@
 <section class="new-arrivals">
     <h2>New Arrivals</h2>
     <h3>Just dropped</h3>
+
     <div class="product-list">
       <div *ngFor="let product of arrivals, trackBy: trackByProductId">
         <app-product-card
@@ -9,10 +10,11 @@
       </app-product-card>
       </div>
     </div>
-      <a [routerLink]="['/products']" class="load-more">
-        <span>Load More</span>
-        <mat-icon>arrow_forward</mat-icon>
-      </a>
+    <a [routerLink]="['/products']" class="load-more">
+      <span>Load More</span>
+      <mat-icon>arrow_forward</mat-icon>
+    </a>
+    
   </section>
   <hr class="seperator"/>
 

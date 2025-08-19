@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import{NgIf} from '@angular/common';
 import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../../core/auth/services/auth.service';
 import { Router } from '@angular/router';
@@ -12,7 +11,7 @@ import {OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-signup',
-  imports: [CommonModule, ReactiveFormsModule, NgIf],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './signup.html',
   styleUrl: './signup.scss'
 })
@@ -40,7 +39,7 @@ export class Signup implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, passwordHasNumberValidator]],
         confirmPassword: ['', Validators.required], 
-        rolename:['', Validators.required]
+        rolename: ['user'],
       },
       {
         validators: matchPasswords('password', 'confirmPassword') 
@@ -50,7 +49,6 @@ export class Signup implements OnInit {
 
   OnSubmit() {
 
-    
     this.submitted = true;
 
     if (this.signupForm.invalid) return;
@@ -66,8 +64,6 @@ export class Signup implements OnInit {
     
     this.authService.signup(payload).subscribe({
       next: (res: any) => {
-        this.authService.setToken(res.token);
-        this.authService.setLoggedIn(true);
         this.router.navigate(['/login']);
       },
       error: (err: any) => {

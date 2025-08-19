@@ -50,8 +50,18 @@
       color: #2e003e;
       margin-bottom: 1.8rem;
       font-weight:10px;
-      padding-left:453px;
+      padding-left:350px;
       
     
+  }
+
+  @media (max-width:400px){
+
+   h1{
+    padding-left: 30px;
+   }
+    .activity-table{
+      margin-bottom: 1300px;
+    }
   }
   

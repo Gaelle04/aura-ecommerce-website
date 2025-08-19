@@ -52,30 +52,6 @@ app-product-card {
   color: #2e003e;
 }
 
-.cart-total-container {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 28rem 0 2rem;
-  margin-bottom: 2rem;
-}
-
-.cart-total {
-  background-color: #f6e6fa;
-  color: #2e003e;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-  font-weight: 500;
-
-  span {
-    margin-right: 1rem;
-  }
-
-  strong {
-    font-size: 1.4rem;
-  }
-}
 
 .empty {
   text-align: center;
@@ -83,4 +59,31 @@ app-product-card {
   font-family: 'Afacad', sans-serif;
   font-size: 30px;
   color: #2e003e;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+
+  button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    background-color: #eee;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 16px;
+  }
 }

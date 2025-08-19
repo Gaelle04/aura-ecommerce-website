@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './favorites.html',
   styleUrl: './favorites.scss'
 })
+
+
 export class Favorites {
   readonly favoriteItems = inject(FavoritesService).favoriteItems;
 

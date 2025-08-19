@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '@app/services/product.service.ts';
+import { ProductService } from '@app/shared/services/productService/product.service.ts';
 import { IProduct } from '@app/shared/models/IProduct.model';
 import { CommonModule } from '@angular/common';
 import { Buttons } from '@app/shared/components/buttons/buttons';

@@ -1,14 +1,13 @@
 
 <section class="recommended-for-you">
     <h2>Recommended for you</h2>
+
     <div class="product-list">
       <div *ngFor="let product of RecommendedForYou, trackBy: trackByProductId">
-       
         <app-product-card
         [product]="product"
         >
       </app-product-card>
-    
       </div>
     </div>
     <a [routerLink]="['/products']" class="load-more">

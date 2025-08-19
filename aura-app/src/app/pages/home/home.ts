@@ -14,6 +14,8 @@ import { RecommendedForYou } from './components/recommended-for-you/recommended-
   styleUrl: './home.scss',
   standalone: true,
 })
+
+
 export class Home  {
   arrivals: IProduct[] = [];
   images = [

@@ -2,6 +2,7 @@
   "name": "aura-app",
   "version": "0.0.0",
   "scripts": {
+    "build:csr": "ng build --configuration=production --prerender=false --ssr=false",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

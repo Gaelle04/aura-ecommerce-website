@@ -30,6 +30,7 @@ export class Navbar {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
   isLoggedIn$: Observable<boolean>;
   
   constructor(private authService: AuthService, private store: Store<AppState>, private router: Router){
@@ -40,7 +41,8 @@ export class Navbar {
   cartCount$:Observable<number>;
 
   logout() {
-    this.authService.logout(); 
+    this.authService.logout();
+    localStorage.removeItem('cart'); 
   }
 
   query= '';
@@ -48,6 +50,10 @@ export class Navbar {
   searchByKeyword() {
     const q = this.query?.trim();
     this.router.navigate(['/products'], { queryParams: q ? { q } : {} });
+  }
+
+   isAdminUser(): boolean{
+    return this.authService.isAdmin();
   }
   
 }

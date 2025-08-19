@@ -11,8 +11,13 @@
             <app-product-card [product]="item.product" [showAddToCart]="false">
             </app-product-card>
           <button class="remove-btn" (click)="removeItem(item.product.id)">Remove</button>
-          <p class="quantity">Quantity: {{ item.quantity }}</p>
+          <div class="quantity-controls">
+            <button (click)="decrementQuantity(item)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="incrementQuantity(item)">+</button>
+          </div>
         </div>
+        <h3>Total: ${{ items | totalPrice }}</h3>
       </div>
     </div>
     

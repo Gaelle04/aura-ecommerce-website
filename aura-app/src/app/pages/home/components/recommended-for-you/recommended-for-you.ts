@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from '@app/shared/models/IProduct.model';
 import { ProductCard } from '../../../product-list/components/product-card/product-card';
 import {CommonModule} from '@angular/common';
-import { ProductService } from '../../../../services/product.service.ts';
+import { ProductService } from '../../../../shared/services/productService/product.service.ts';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 

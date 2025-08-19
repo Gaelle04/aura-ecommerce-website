@@ -7,6 +7,7 @@
         <a routerLink="/">HOME</a>
         <a routerLink="/products">SHOP</a>
         <a routerLink="/about">ABOUT</a>
+        <a *ngIf="isAdminUser()" routerLink="/dashboard">DASHBOARD</a>
       </nav>
     </div>
   

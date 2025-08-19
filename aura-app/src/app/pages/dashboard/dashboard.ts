@@ -5,10 +5,14 @@ import { AgGridAngular } from 'ag-grid-angular';
 import type { ColDef } from 'ag-grid-community';
 import { DeleteButton } from './delete-button/delete-button';
 import {themeMaterial} from 'ag-grid-community';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-dashboard',
-  imports: [AgGridAngular],
+  imports: [AgGridAngular, CommonModule],
   standalone: true,
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
@@ -19,22 +23,27 @@ import {themeMaterial} from 'ag-grid-community';
 export class Dashboard {
 
 
-
-
- public theme = themeMaterial.withParams({
-  //backgroundColor: '#f1ebff',
+public theme = themeMaterial.withParams({
+  
   foregroundColor: 'rgb(126, 46, 132)',
   headerTextColor: '#ffffff',
   headerBackgroundColor: '#',
   oddRowBackgroundColor: '#EEDAFB',
   headerColumnResizeHandleColor: '#ffffff',
-   fontFamily: 'sans-serif',
-  // headerFontFamily: 'Afacad',
-   cellFontFamily: 'monospace',
+  fontFamily: 'sans-serif',
+  cellFontFamily: 'monospace',
 });
 
 rowHeight= 70;
 
+
+showGrid = false;
+
+ngOnInit() {
+  if (isPlatformBrowser(this.platformId)) {
+    this.showGrid = true;
+  }
+}
 
 
   deleteRow(row: any) {
@@ -62,7 +71,8 @@ colDefs: ColDef[] = [
   paginationPageSize: number;
   paginationPageSizeSelector: number[];
 
-constructor(){
+constructor(@Inject(PLATFORM_ID) private platformId: Object){
+
   this.colDefs = [
     { field: "id", filter: true },
     {field:"image", 

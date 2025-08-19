@@ -19,9 +19,9 @@
   .categories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    gap: 4rem;
     justify-items: center;
-    padding: 8rem 4rem;
+    padding: 6rem 4rem;
     border-radius: 2rem;
     background-image: url('/assets/flowers.png');
     background-size: cover;
@@ -35,7 +35,7 @@
     padding: 1rem;
     border-radius: 30px;
     text-align: center;
-    width: 200px;
+    width: 100%;
     transition: transform 0.3s ease-in-out;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     text-decoration: none;
@@ -67,4 +67,39 @@
   margin-top: 0;
   margin-bottom: 1rem;
   width: 100%;
+}
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr; // stack vertically
+    padding: 1rem;
+    width:900px;
+    gap:5rem;
+    
+  }
+
+  .category-card {
+    width: 100%;
+    max-width: 100%;
+   
+  }
+
+  @media (max-width: 400px) {
+    .product-list {
+      grid-template-columns: 1fr;
+      padding: 0.5rem;
+    }
+  
+   
+  
+    .seperator{
+    min-width: 300%;
+    }
+  
+  
+
+}
 }

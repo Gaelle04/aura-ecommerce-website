@@ -17,24 +17,23 @@
       color: #82337E; // Brand purple
       font-weight: 600;
       font-size: 1.3rem;
-      padding: 0.8rem 1rem;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
   
     .section-title {
       font-size: 2.5rem;
-      font-weight: 600;
+      font-weight: bold;
       color: #82337E;
-      margin: 2rem 0 1rem;
+     // margin: 2rem 0 1rem;
       letter-spacing: 0.03em;
     }
   
     p {
-      max-width: 800px;
+      width: 800px;
       margin: 1.5rem auto;
       font-size: 2.1rem;
-      line-height: 1.9;
+      line-height: 1;
       color: #444;
       padding: 0 1rem;
     }
@@ -43,5 +42,27 @@
       color: #d81b60;
       font-weight: 500;
     }
+
+
+    @media (max-width: 400px) {
+.image{
+  width:310%;
+}
+
+.carousel-offer{
+  width: 310%;
+}
+.section-title{
+  align-items: center;
+  margin-left: 560px;
+}
+
+p{
+  align-items: center;
+  margin-left: 200px;
+ 
+}
+
+  }
   }
   

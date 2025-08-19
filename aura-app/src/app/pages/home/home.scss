@@ -62,10 +62,10 @@
   
   
   
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .carousel {
       height: 70vh;
-  
+   
       button {
         padding: 0.8rem;
         font-size: 1.5rem;
@@ -74,14 +74,23 @@
   }
   
   
-  @media (max-width: 480px) {
+  @media (max-width: 430px) {
     .carousel {
-      height: 60vh;
-  
+      height: 80vh;
+      width:310%;
+      
       button {
         padding: 0.6rem;
         font-size: 1.2rem;
       }
     }
+
+    .carousel-offer{
+      width:300%;
+    }
+
+    
   }
+
+
   

@@ -1,8 +1,8 @@
 
 
-    <!-- The AG Grid component -->
- <h1>Recent Activity</h1>   
-<ag-grid-angular class="ag-theme-alpine activity-table" 
+   
+<h1>Recent Activity</h1>   
+<ag-grid-angular *ngIf="showGrid" class="ag-theme-alpine activity-table" 
     [rowData]="rowData" 
     [columnDefs]="colDefs"
     [columnDefs]="colDefs"

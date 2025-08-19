@@ -1,13 +1,13 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { ProductService} from '../../services/product.service.ts';
+import { Component, inject, OnInit, signal, OnDestroy } from '@angular/core';
+import { ProductService} from '../../shared/services/productService/product.service.ts';
 import { IProduct } from '@app/shared/models/IProduct.model';
 import {CommonModule} from '@angular/common';
 import {Store} from '@ngrx/store';
 import { ProductCard } from './components/product-card/product-card';
 import { AppState } from '../../app.state';
-import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import {  Subject, Subscription, takeUntil } from 'rxjs';
 
 
 
@@ -18,19 +18,21 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './product-list.html',
   styleUrl: './product-list.scss'
 })
-export class ProductList implements OnInit{
+export class ProductList implements OnInit, OnDestroy{
 
   minPrice: number | null= null;
   maxPrice: number | null= null;
-
   products = signal<IProduct[]>([]);
   filteredProducts= signal<IProduct[]>([]);
-  searchResults = signal <IProduct[]>([]);
+ 
 
-  constructor(private productService: ProductService, private store:Store<AppState>){}
+  constructor(private productService: ProductService, private store:Store<AppState>){
+  }
 
+  private subscription!: Subscription;
   private route = inject(ActivatedRoute);
-  keyword = '';
+  private Destroy$ =  new Subject<void>();
+
 
 
   Apply(){
@@ -38,7 +40,7 @@ export class ProductList implements OnInit{
     const max = this.maxPrice ?? Infinity;
 
     const result = this.filteredProducts().filter(p => {
-      const price = (p as any).price ?? 0;
+      const price = p.price;
       return price >= min && price <= max;
     });
 
@@ -48,19 +50,25 @@ export class ProductList implements OnInit{
   clearFilter(){
     this.minPrice = null;
     this.maxPrice = null;
-    this.filteredProducts.set([...this.products()]);
+    this.applySearchFromQuery();
   }
 
 
   ngOnInit() {
-    this.productService.getProducts().subscribe((data: IProduct[] = []) => {
+    this.subscription=this.productService.getProducts().subscribe((data: IProduct[] = []) => {
       this.products.set(data);
       this.filteredProducts.set(data);
       this.applySearchFromQuery();
     });
 
-    this.route.queryParamMap.subscribe(() => this.applySearchFromQuery());
+    this.route.queryParamMap.pipe(takeUntil(this.Destroy$)).subscribe(() => this.applySearchFromQuery());
 
+}
+
+ngOnDestroy(){
+ this.subscription.unsubscribe();
+ this.Destroy$.next();
+ this.Destroy$.complete();
 }
 
 private applySearchFromQuery() {
@@ -71,7 +79,7 @@ private applySearchFromQuery() {
     return;
   }
   const filtered = this.products().filter(p =>
-    String((p as any).title ?? '').toLowerCase().includes(q)
+    (p.title ?? '').toLowerCase().includes(q)
   );
   this.filteredProducts.set(filtered);
 }
@@ -80,9 +88,5 @@ private applySearchFromQuery() {
 trackByProductId(index: number, product:IProduct): number{
   return product.id;
 }
-
-
-
-
 
 }

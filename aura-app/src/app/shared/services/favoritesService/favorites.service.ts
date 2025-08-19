@@ -9,7 +9,11 @@ export class FavoritesService {
   private favoritesState = signal<IProduct[]>([]);
   readonly favoriteItems = computed(() => this.favoritesState());
 
-  constructor() { }
+  constructor() { 
+    effect(() => {
+      console.log('Favorites changed:', this.favoritesState());
+    });
+  }
 
 
   addItem(product : IProduct){

@@ -1,34 +1,32 @@
 .new-arrivals {
-    padding: 2rem;
-    padding-left:100px;
-    padding-right:100px;
+  padding: 2rem;
+  padding-left:100px;
+  padding-right:100px;
     
     
     
   
     h2 {
-      font-size:3rem;
-      color: #2e003e;
-      margin-bottom: 1.5rem;
-      margin-left:16rem;
+      font-size: 3rem;
+    color: #2e003e;
+    margin-bottom: 1.5rem;
     
       
     }
 
     h3{
-        font-size:1rem;
-        color:#2e003e;
-        margin-bottom: 2rem;
-        font-style:italic;
-        margin-left:16rem;
+      font-size: 1rem;
+      color: #2e003e;
+      margin-bottom: 3rem;
+      font-style: italic;
 
     }
   
     .product-list {
       display: flex;
       
-      gap: 2rem;
-      justify-content: center;
+       gap: 6rem;
+       justify-content: center;
     }
     
     .load-more {
@@ -80,3 +78,10 @@
     color: inherit;
   }
   
+
+  @media (max-width: 400px) {
+  .seperator{
+  min-width: 300%;
+  }
+
+}

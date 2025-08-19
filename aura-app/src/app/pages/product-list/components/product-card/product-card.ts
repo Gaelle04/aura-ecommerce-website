@@ -1,4 +1,4 @@
-import { Component, Input,  inject, Signal, OnInit } from '@angular/core';
+import { Component, Input,  inject, Signal, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Buttons } from '../../../../shared/components/buttons/buttons';
 import { CartService } from '../../../../shared/services/cartService/cart.service';
@@ -15,8 +15,11 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, Buttons, MatButtonModule, MatIconModule, MatToolbarModule, RouterLink],
   templateUrl: './product-card.html',
-  styleUrls: ['./product-card.scss']
+  styleUrls: ['./product-card.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
+
+
 export class ProductCard implements OnInit{
   @Input() product!: any; 
   @Input() showAddToCart: boolean= true;

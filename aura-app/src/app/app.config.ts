@@ -6,6 +6,9 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { AuthInterceptor } from './core/auth/interceptors/auth-interceptor';
 import { cartReducer } from './pages/cart/cart.reducer';
 import {provideStore} from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+
+const isBrowser = typeof window !== 'undefined';
 
 
 export const appConfig: ApplicationConfig = {
@@ -14,6 +17,10 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes), provideClientHydration(withEventReplay()), 
     provideHttpClient(withFetch(), withInterceptors([AuthInterceptor])),
-    provideStore({cart: cartReducer})
+    provideStore({cart: cartReducer}),
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: false, 
+    })
   ]
 };

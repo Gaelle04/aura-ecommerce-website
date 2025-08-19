@@ -22,20 +22,18 @@ export class AuthService {
   }
 
   login(credentials: { Username: string; Password: string }) {
-    return this.http.post<{ token: string }>(this.loginUrl, credentials);
+    return this.http.post<any>(this.loginUrl, credentials);
   }
 
   signup(credentials: {Firstname: string;Lastname:string,  Email: string; Password: string , RoleName?:string}) {
-    return this.http.post<{ id: number }>(this.signupUrl, credentials);
+    return this.http.post<{data: { id: number }}>(this.signupUrl, credentials);
   }
 
   private isBrowser(): boolean {
-    //return true;
     return typeof window !== 'undefined' && !!window.localStorage;
   }
 
   private hasToken(): boolean {
-   // return true;
     return this.isBrowser() && !!localStorage.getItem(this.token_key);
   }
 
@@ -55,6 +53,7 @@ export class AuthService {
       localStorage.removeItem(this.token_key);
       this.clearCurrenTEmail();
       this.setLoggedIn(false);
+
     }
   }
 
@@ -78,4 +77,10 @@ export class AuthService {
       localStorage.removeItem(this.current_email_key);
     }
   }
+
+  isAdmin():boolean{
+    const currentEmail = this.getCurrentEmail();
+    return currentEmail ==='gaelle.admin@gmail.com';
+  }
+  
 }

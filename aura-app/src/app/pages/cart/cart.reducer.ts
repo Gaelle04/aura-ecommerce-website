@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { addToCart, removeFromCart, clearCart } from './cart.actions';
-import { CartState, initialCartState } from './cart.states';
+import { addToCart, removeFromCart, clearCart, updateCartItemQuantity } from './cart.actions';
+import { initialCartState } from './cart.states';
+
 
 export const cartReducer = createReducer(
-    
   initialCartState,
   on(addToCart, (state: { items: any[]; }, { item }: any) => {
     const existing = state.items.find((i: { product: { id: any; }; }) => i.product.id === item.product.id);
@@ -29,5 +29,11 @@ export const cartReducer = createReducer(
     items: state.items.filter((i: { product: { id: any; }; }) => i.product.id !== productId)
   })),
 
-  on(clearCart, () => initialCartState)
+  on(updateCartItemQuantity, (state, {productId, quantity})=> ({
+    ...state, 
+    items: state.items.map(item =>
+      item.product.id === productId? {...item, quantity}: item)
+  }))
 );
+
+  on(clearCart, () => initialCartState)

@@ -5,6 +5,7 @@ import { authGuardGuard } from './core/auth/guards/authguard/auth-guard';
 import { NotFound } from './pages/not-found/not-found';
 import { guestGuard } from './core/auth/guards/guestGuard/guest-guard';
 import { About } from './pages/about/about';
+import { adminGuardGuard } from './core/auth/guards/adminGuard/admin-guard-guard';
 
 
 export const routes: Routes = [
@@ -12,8 +13,6 @@ export const routes: Routes = [
     {
         path:'',
         component: Home
-        
-
     }, 
 
     {
@@ -26,7 +25,7 @@ export const routes: Routes = [
         path:'cart', 
         loadChildren: () =>
         import('./pages/cart/cart.routes').then(m => m.routes),
-        //canActivate: [authGuardGuard]
+        canActivate: [authGuardGuard]
     }, 
 
     {
@@ -39,7 +38,7 @@ export const routes: Routes = [
         path:'favorites', 
         loadChildren: () =>
         import('./pages/favorites/favorites.routes').then(m => m.routes),
-        //canActivate: [authGuardGuard]
+        canActivate: [authGuardGuard]
     }, 
     {
         path:'signup', 
@@ -61,7 +60,7 @@ export const routes: Routes = [
         path:'dashboard',
         loadChildren: () =>
         import('./pages/dashboard/dashboard.routes').then(m => m.routes),
-        canActivate: [authGuardGuard]
+        canActivate: [adminGuardGuard]
         
 
     },

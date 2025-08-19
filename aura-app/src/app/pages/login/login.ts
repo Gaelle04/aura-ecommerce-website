@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import{NgIf} from '@angular/common';
 import {ReactiveFormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../../core/auth/services/auth.service';
 import { Router } from '@angular/router';
@@ -10,7 +9,7 @@ import { passwordHasNumberValidator } from '../../validators/password-has-number
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, ReactiveFormsModule, NgIf],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.scss'
 })
@@ -44,15 +43,28 @@ export class Login {
     }
   
     this.authService.login(payload).subscribe({
-      next: (response: { token: string }) => {
-        this.authService.setToken(response.token);
-        this.authService.setLoggedIn(true); 
-        this.authService.setCurrentEmail(email); 
+      next: (response) => {
+        console.log('🟢 RAW Login Response:', response);
+    
+        if (typeof window !== 'undefined') {
+          
+          const token = response?.Login?.AccessToken; 
+          console.log('🟡 Extracted token:', token);
+    
+          if (token) {
+            this.authService.setToken(token);
+            this.authService.setLoggedIn(true);
+            this.authService.setCurrentEmail(email);
+          } else {
+            console.warn('⚠️ Token not found in response!');
+          }
+        }
+    
         this.router.navigate(['/']);
       },
       error: () => {
         this.loginError = 'Invalid username or password';
       }
-    }); 
+    });
   }
 }
